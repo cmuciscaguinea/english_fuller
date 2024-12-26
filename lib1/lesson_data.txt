@@ -1,0 +1,338 @@
+//lesson_data.dart
+
+Map<String, dynamic> getLessonDetails(int lessonNumber) {
+    var lessonContent = {
+      
+      // Vowel Sound
+      1: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Alphabets Sounds',
+        'words': ['Aa', 'Bb', 'Cc', 'Dd', 'Ee', 'Ff', 'Gg', 'Hh', 'Ii', 'Jj', 'Kk', 'Ll', 'Mm', 'Nn', 'Oo', 'Pp', 'Qq', 'Rr', 'Ss', 'Tt', 'Uu', 'Vv', 'Ww', 'Xx', 'Yy', 'Zz'],
+        //'audioDuration': 8000,
+      },
+
+      2: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Vowel Sound (Aa)',
+        'words': ['Bad', 'Dad', 'Lad', 'Bag', 'Nag', 'Wag', 'Rat', 'Mat', 'Fat', 'Gas', 'Has', 'Was', 'Cap', 'Gap', 'Map'],
+      },
+
+      3: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Vowel Sound (Ee)',
+        'words': ['Bed', 'Red', 'Led', 'Beg', 'Leg', 'Peg', 'Gem', 'Bem', 'Hem', 'Pen', 'Ten', 'Yen', 'Get', 'Net', 'Set'],
+      },
+
+      4: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Vowel Sound (Ii)',
+        'words': ['Bid', 'Lid', 'Kid',
+          'Big', 'Gig', 'Wig',
+          'Dim', 'Him', 'Jim',
+          'Bin', 'Pin', 'Sin',
+          'Dip', 'Lip', 'Sip'],
+      },
+
+      5: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Vowel Sound (Oo)',
+        'words': ['Bog', 'Cog', 'Mog',
+          'God', 'Nod', 'Rod',
+          'Log', 'Hog', 'Jog',
+          'Dot', 'Got', 'Hot',
+          'Cot', 'Mot', 'Pot'],
+      },
+
+      6: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Vowel Sound (Uu)',
+        'words': ['Cug', 'Rug', 'Tug',
+          'Bud', 'Sud', 'Mud',
+          'Bum', 'Hum', 'Sum',
+          'Bun', 'Fun', 'Run',
+          'But', 'Hut', 'Rut'],
+      },
+
+      7: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Hickory Dickory Dock',
+        'words': ['Hickory, dickory, dock. The mouse ran up the clock. The clock struck one. The mouse ran down. Hickory, dickory, dock!'],
+      },
+
+      8: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Incy Wincy Spider',
+        'words': ['Incy Wincy spider climbing up the water spout, Down came the rain and washed for wincy out. Out came the sunshine and dried up all the rain, And Incy Wincy spider climbed up the spout again.'],
+      },
+
+      9: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Miss Polly had a Dolly',
+        'words': ['Miss Polly had a dolly who was sick, sick, sick. So, she phoned for the doctor to be quick, quick, quick. The doctor came with his bag and hat And knocked at the door with a rat-a-tat-tat. He looked at the dolly and shook his head And he said “Miss Polly, put her straight to bed!” He wrote a pad for a pill, pill, pill “I’ll be back in the morning with my bill, bill, bill."'],
+      },
+
+      // Rhyming Words
+
+      10: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Rythming Words /al/',
+        'words': ['Ball', 'Call', 'Tall',
+          'Wall', 'Fall'],
+      },
+
+      11: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Rythming Words /ar/',
+        'words': ['Car', 'Bar', 'Far',
+          'Jar', 'Star'],
+      },
+
+      12: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Rythming Words /at/',
+        'words': ['Cat', 'Bat', 'Hat',
+          'Rat', 'Sat'],
+      },
+
+
+      13: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Rythming Words /ee/',
+        'words': ['Free', 'Three', 'Tree',
+          'Bee', 'Knee'],
+      },
+
+      14: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Rythming Words /ell/',
+        'words': ['Shell', 'Bell', 'Smell',
+          'Spell', 'Swell'],
+      },
+
+      // Vowels Words
+
+      15: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Rhyming Words (/uck/)',
+        'words': ['Duck', 'Truck', 'Luck', 'Buck', 'Pluck'],
+      },
+
+      // Vowel and Consonant word sound
+      16: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'WORDS WITH LONG a OR /ey/',
+        'words': ['Back', 'Bake', 'Can', 'Cane', 
+        'Cap', 'Lack', 'Lake', 'Mad', 'Made', 
+        'Mat', 'Mate', 'Pan', 'Pane', 'Sack', 'Sake',
+        'Shack', 'Shake', 'Sham', 'Shame', 'Tap', 'Tape', 
+        'A man with cane', 'A nap', 'Bake a pan cake', 'An old man baked a pan cake with care.'],
+      },
+
+      17: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'WORDS WITH ai SOUNDS AS LONG a OR /ey/',
+        'words': ['Ail', 'Fail', 'Grain', 'Main', 
+        'Rail', 'Rain', 'Trail', 'Train',  
+        'Repaint the wall', 'Of paint', 'A housemaid', 
+        'A housemaid repaints the wall with a pail.'],
+      },
+
+      18: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'WORDS WITH au SOUNDS /õ/ OR /ow/',
+        'words': ['Cause', 'Paul', 'Sauce',
+        'Caught for a cause', 'Paul taught', 'Cook a cup of sauce', 
+        'Paul taught John to cook sauce.'],
+      },
+
+      19: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'WORDS WITH aw SOUNDS AS /ow/ or /ò/',
+        'words': ['Crawl', 'Dawn', 'Draw', 'Jaw', 'Law', 
+        'Staw', 'Law to follow', 'Sorry for the flaw',
+        'The claws of the hawk can kill its prey.'],
+      },
+
+      20: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'WORDS WITH ie SOUNDS /ë/ OR /iy/',
+        'words': ['Believe', 'Brief', 'Field', 'Grief', 
+        'Relief', 'Yield', 'Priest in the field.', 
+        'The thief hides', 'Believe to relieve', 
+        'The chief of police released the thief because he is underage.'],
+      },
+
+      21: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'WORDS WITH ie SOUNDS /ay/ OR long i',
+        'words': ['Die', 'Died', 'Fried', 'Lie', 'Lied', 'Lies', 'Tries',
+        'She lies to fight', 'Tries to tie', 'When he dies', 
+        'Father tries to tie the sack full of dried palay.'],
+      },
+
+    
+      22: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'WORDS WITH /ew/',
+        'words': ['Anew','Blew', 'Chew', 'Drew', 'Few', 
+        'Grew', 'News', 'Threw', 'Blew the candles',
+         'Few are new', 'Join the crew', 'The boy has a new coin.'],
+      },
+
+      23: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'WORDS WITH y SOUNDED AS /ay/ OR long i',
+        'words': ['Fly', 'My', 'Reply', 'Sky', 'Why', 
+        'Deny to reply', 'Fly in the sky', 'Rely on reply',
+        'My shy friends try to deny the reply of their parents.'],
+      },
+
+      // Consonant Blend
+      24: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Consonant Blend /bl/',
+        'words': ['Blame', 'Blast', 'Bleach', 'Bless', 'Block', 
+        'Blot', 'Blue', 'A black blouse', 'A blue bloomer',
+        'Blame the blond', 'The blade on the block.',
+        'Blesildas favorite colors are black and white.'],
+      },
+
+      25: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Consonant Blend /br/',
+        'words': ['Branch', 'Breast', 'Bride', 'Brood',  
+        'Brother', 'Brown', 'A bragging brat', 
+        'A broken breast', 'Brandy lost his brakes near the bridge.'],
+      },
+
+      26: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Consonant Blend /cr/',
+        'words': ['Crash', 'Cream', 'Crook', 'Crop',  
+        'Cross', 'Crow', 'Cry', 'Cry in the cradle', 
+        'Crawl in the crip', 'Christy put a cream in he coffee.'],
+      },
+
+      27: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Consonant Blend /dr/',
+        'words': ['Drain', 'Drama', 'Draw', 'Drawer',  
+        'Dream', 'Drench', 'Drive', 'Drown', 'Draw a dragon', 
+        'Dress in the draw', 'Dresden drew a dragon and a dragonfly yesterday.'],
+      },
+
+      28: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Consonant Blend /fl/',
+        'words': ['Flake', 'Flash', 'Flat', 'Flee', 'Fleet',
+        'Flow', 'Flunk', 'Flute', 'A fleet of flagships', 
+        'Flowers in a flask', 'The Filipino flag fly high in our school.'],
+      },
+
+      29: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Consonant Blend /fr/',
+        'words': ['Fraction', 'Frank', 'Free', 'Frequent',  
+        'Fresh', 'From', 'Front', 'Frown', 'Fresh fruits', 
+        'A frail man', 'The farmer harvested fresh fruits from the farm.'],
+      },
+
+
+      30: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Consonant Blend /tr/',
+        'words': ['Travel', 'Treat', 'Trees', 'Tribe',  
+        'Trick', 'Trip', 'Troop', 'Try', 'Transfer the tray', 
+        'A trap in the tractor', 'Dina transfer the tray in the kitchen.'],
+      },
+
+     31: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Consonant Blend /sw/',
+        'words': ['Swallow', 'Swamp', 'Swat', 'Sway', 
+          'Swift', 'Swing', 'Swollen', 'Sweets in her sweater', 'The lovely swan swim in the shallow river.'],
+      },
+
+      
+
+      32: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Consonant Blend /sh/',
+        'words': ['Shake', 'Shark', 'Shoot', 'Shoulder',  
+        'Shovel', 'Show', 'A short shirt' ],
+      },
+
+      // The Consonant Cluster
+      33: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Consonant Cluster /str/',
+        'words': ['Stretch', 'Strike', 'String', 'Stroke',  
+        'Struck',  'A stranger in stripes', 'Stroll by the stream', 
+        'The father of Liza is very strict.'],
+      },
+
+      34: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Consonant Cluster /spl/',
+        'words': ['Splatter', 'Spleen', 'Splendid', 'Splendor',  
+        'Splice', 'Split', 'Splutter', 'A splash of water', 'Split on the floor', 
+        'Ana split on the stage in her dance.'],
+      },
+
+      35: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Consonant Cluster /scr/',
+        'words': ['Scramble', 'Scarp', 'Scratch', 'Screen',  
+        'Screw', 'Scrub', 'Scrawl', 'Scraped the cheese', 'Scroll the tarp', 
+        'Mr. Diaz scraped off the paint of his car.'],
+      },
+
+      // The Final Consonant Blend
+      36: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Final Consonant Blend /st/',
+        'words': ['Best', 'Coast', 'East', 'Ghost',  
+        'Post', 'Thirst', 'Waist', 'West', 'A best book', 'Dust in the furniture', 
+        'The grooms wear their vest.'],
+      },
+
+      37: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Final Consonant Blend /rt/',
+        'words': ['Cart', 'Part', 'Port', 'Report',  
+        'Shirt', 'Skirt', 'Sport', 'Start', 'A dirty shirt', 'Sport in an exercise', 
+        'The basketball is a good sport for the young boys.'],
+      },
+
+      38: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Final Consonant Blend /rk/',
+        'words': ['Bark', 'Cork', 'Dark', 'Fork',  
+        'Lark', 'Park', 'Spark', 'Work', 'A beautiful park', 'Night time is dark', 
+        'Maramag Municipal Park is beautiful.'],
+      },
+
+      39: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Final Consonant Blend /nk/',
+        'words': ['Bank', 'Dank', 'Drink', 'Drunk',  
+        'Flunk', 'Sunk', 'Wink', 'Drink plenty of water', 'Third the rank', 
+        'Miss. Philippines was third in rank.'],
+      },
+
+      40: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Final Consonant Blend /nd/',
+        'words': ['Bend', 'Blind', 'Found', 'Ground',  
+        'Mend', 'Pound', 'Sand', 'Send', 'A blind man', 'Sand on his hand', 
+        'The children play sand in the seashore.'],
+      },
+
+    };
+
+    return lessonContent[lessonNumber] ?? {
+      'title': 'Lesson Not Found',
+      'subTitle': '',
+      'words': [],
+    };
+  }

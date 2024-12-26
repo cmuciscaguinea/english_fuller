@@ -1,0 +1,19 @@
+Map<String, dynamic> getSentenceLessonDetails(int lessonNumber) {
+  return {
+    7: {
+      'title': 'Lesson 7',
+      'subTitle': 'Hickory Dickory Dock',
+      'words': ['Hickory, dickory, dock. The mouse ran up the clock. The clock struck one. The mouse ran down. Hickory, dickory, dock!'],
+    },
+    8: {
+      'title': 'Lesson 8',
+      'subTitle': 'Incy Wincy Spider',
+      'words': ['Incy Wincy spider climbing up the water spout, Down came the rain and washed poor Wincy out. Out came the sunshine and dried up all the rain, And Incy Wincy spider climbed up the spout again.'],
+    },
+    9: {
+      'title': 'Lesson 9',
+      'subTitle': 'Miss Polly had a Dolly',
+      'words': ['Miss Polly had a dolly who was sick, sick, sick. So, she phoned for the doctor to be quick, quick, quick. The doctor came with his bag and hat And knocked at the door with a rat-a-tat-tat.'],
+    },
+  }[lessonNumber] ?? {'title': 'Lesson Not Found', 'subTitle': '', 'words': []};
+}

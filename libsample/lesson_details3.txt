@@ -1,0 +1,418 @@
+import 'package:flutter/material.dart';
+import 'package:audioplayers/audioplayers.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+class LessonDetailScreen extends StatefulWidget {
+  final int lessonNumber;
+  static const String routeName = '/lessondetails';
+
+  LessonDetailScreen({Key? key, required this.lessonNumber}) : super(key: key);
+
+  @override
+  State<LessonDetailScreen> createState() => _LessonDetailScreenState();
+}
+
+class _LessonDetailScreenState extends State<LessonDetailScreen> {
+  final AudioPlayer audioPlayer = AudioPlayer();
+
+  Map<String, dynamic> getLessonDetails(int lessonNumber) {
+    var lessonContent = {
+      1: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Alphabets Sounds',
+        'words': ['Aa', 'Bb', 'Cc', 'Dd', 'Ee', 'Ff', 'Gg', 'Hh', 'Ii', 'Jj', 'Kk', 'Ll', 'Mm', 'Nn', 'Oo', 'Pp', 'Qq', 'Rr', 'Ss', 'Tt', 'Uu', 'Vv', 'Ww', 'Xx', 'Yy', 'Zz'],
+      },
+
+      2: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Vowel Letter (Aa)',
+        'words': ['Bad', 'Dad', 'Lad', 'Bag', 'Nag', 'Wag', 'Rat', 'Mat', 'Fat', 'Gas', 'Has', 'Was', 'Cap', 'Gap', 'Map'],
+      },
+
+      3: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Vowel Letter (Ee)',
+        'words': ['Bed', 'Red', 'Led', 'Beg', 'Leg', 'Peg', 'Gem', 'Bem', 'Hem', 'Pen', 'Ten', 'Yen', 'Get', 'Net', 'Set'],
+      },
+
+      4: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Vowel Letter (Ii)',
+        'words': ['Bid', 'Lid', 'Kid',
+          'Big', 'Gig', 'Wig',
+          'Dim', 'Him', 'Jim',
+          'Bin', 'Pin', 'Sin',
+          'Dip', 'Lip', 'Sip'],
+      },
+
+      5: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Vowel Letter (Oo)',
+        'words': ['Bog', 'Cog', 'Mog',
+          'God', 'Nod', 'Rod',
+          'Log', 'Hog', 'Jog',
+          'Dot', 'Got', 'Hot',
+          'Cot', 'Mot', 'Pot'],
+      },
+
+      6: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Vowel Letter (Uu)',
+        'words': ['Cug', 'Rug', 'Tug',
+          'Bud', 'Sud', 'Mud',
+          'Bum', 'Hum', 'Sum',
+          'Bun', 'Fun', 'Run',
+          'But', 'Hut', 'Rut'],
+      },
+
+      7: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Hickory Dickory Dock',
+        'words': ['Hickory, dickory, dock. The mouse ran up the clock. The clock struck one. The mouse ran down. Hickory, dickory, dock!'],
+      },
+
+      8: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Incy Wincy Spider',
+        'words': ['Incy Wincy spider climbing up the water spout, Down came the rain and washed for wincy out. Out came the sunshine and dried up all the rain, And Incy Wincy spider climbed up the spout again.'],
+      },
+
+      9: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Miss Polly had a Dolly',
+        'words': ['Miss Polly had a dolly who was sick, sick, sick. So, she phoned for the doctor to be quick, quick, quick. The doctor came with his bag and hat And knocked at the door with a rat-a-tat-tat. He looked at the dolly and shook his head And he said “Miss Polly, put her straight to bed!” He wrote a pad for a pill, pill, pill “I’ll be back in the morning with my bill, bill, bill."'],
+      },
+
+      10: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Rythming Words /al/',
+        'words': ['Ball', 'Call', 'Tall',
+          'Wall', 'Fall'],
+      },
+
+      11: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Rythming Words /ar/',
+        'words': ['Car', 'Bar', 'Far',
+          'Jar', 'Star'],
+      },
+
+      12: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Rythming Words /at/',
+        'words': ['Cat', 'Bat', 'Hat',
+          'Rat', 'Sat'],
+      },
+
+
+      13: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Rythming Words /ee/',
+        'words': ['Free', 'Three', 'Tree',
+          'Bee', 'Knee'],
+      },
+
+      14: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Rythming Words /ell/',
+        'words': ['Shell', 'Bell', 'Smell',
+          'Spell', 'Swell'],
+      },
+
+      // ... Add the rest of the lessons as you provided earlier
+      15: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Rhyming Words (/uck/)',
+        'words': ['Duck', 'Truck', 'Luck', 'Buck', 'Pluck'],
+      },
+
+      16: {
+        'title': 'Lesson $lessonNumber',
+        'subTitle': 'Rhyming Words (/br/)',
+        'words': ['Branch'],
+      },
+    };
+
+    return lessonContent[lessonNumber] ?? {
+      'title': 'Lesson Not Found',
+      'subTitle': '',
+      'words': [],
+    };
+  }
+
+  @override
+  void dispose() {
+    audioPlayer.release();
+    audioPlayer.dispose();
+    super.dispose();
+  }
+
+  // Future<void> playSound(String word) async {
+  //   try {
+  //     String audioPath = '';
+
+  //     // Handle specific cases for long sentences or unique names
+  //     if (widget.lessonNumber == 1-8) {
+  //       audioPath = 'sounds/hickory_deckory.mp3';
+  //     } else {
+  //       String cleanedWord = word.toLowerCase().replaceAll(RegExp(r'[^a-z0-9_]'), '_');
+  //       audioPath = 'sounds/$cleanedWord.mp3';
+  //     }
+
+  //     print("Attempting to play: $audioPath");
+  //     Source audioSource = AssetSource(audioPath);
+  //     await audioPlayer.play(audioSource);
+  //     print("Playback started for $audioPath");
+  //   } catch (e) {
+  //     print("Error playing sound: ${e.toString()}");
+  //   }
+  // }
+
+
+
+Map<int, List<String>> lessonAudioMap = {
+  1: ['aa.mp3', 'bb.mp3', 'cc.mp3', 'dd.mp3', 
+      'ee.mp3', 'ff.mp3', 'gg.mp3', 'hh.mp3',
+      'ii.mp3', 'jj.mp3', 'kk.mp3', 'll.mp3',
+      'mm.mp3', 'nn.mp3', 'oo.mp3', 'pp.mp3',
+      'qq.mp3', 'rr.mp3', 'ss.mp3', 'tt.mp3',
+      'uu.mp3', 'vv.mp3', 'ww.mp3', 'xx.mp3',
+      'yy.mp3', 'zz.mp3',],
+       // Lesson 1 files
+  2: ['Bad.mp3', 'Dad.mp3', 'Lad.mp3', 'Bag.mp3', 
+      'Nag.mp3', 'Wag.mp3', 'Rat.mp3', 'Mat.mp3', 
+      'Fat.mp3', 'Gas.mp3', 'Has.mp3', 'Was.mp3', 
+      'Cap.mp3', 'Gap.mp3', 'Map.mp3' ],
+
+  3: ['Bed.mp3', 'Red.mp3', 'Led.mp3', 'Beg.mp3', 
+      'Leg.mp3', 'Peg.mp3', 'Gem.mp3', 'Bem.mp3', 
+      'Hem.mp3', 'Pen.mp3', 'Ten.mp3', 'Yen.mp3', 
+      'Get.mp3', 'Net.mp3', 'Set.mp3' ],
+
+  4: ['Bid.mp3', 'Lid.mp3', 'Kid.mp3',
+      'Big.mp3', 'Gig.mp3', 'Wig.mp3',
+      'Dim.mp3', 'Him.mp3', 'Jim.mp3',
+      'Bin.mp3', 'Pin.mp3', 'Sin.mp3',
+      'Dip.mp3', 'Lip.mp3', 'Sip.mp3' ],
+
+  5: ['Bog.mp3', 'Cog.mp3', 'Mog.mp3',
+      'God.mp3', 'Nod.mp3', 'Rod.mp3',
+      'Log.mp3', 'Hog.mp3', 'Jog.mp3',
+      'Dot.mp3', 'Got.mp3', 'Hot.mp3',
+      'Cot.mp3', 'Mot.mp3', 'Pot.mp3' ],
+
+  6: ['Cug.mp3', 'Rug.mp3', 'Tug.mp3',
+      'Bud.mp3', 'Sud.mp3', 'Mud.mp3',
+      'Bum.mp3', 'Hum.mp3', 'Sum.mp3',
+      'Bun.mp3', 'Fun.mp3', 'Run.mp3',
+      'But.mp3', 'Hut.mp3', 'Rut.mp3' ],
+
+  7: ['Hickory.mp3'],
+  8: ['Incy_Wincy_Spider.mp3'],
+  9: ['Miss_A_Dolly.mp3'],
+  
+  10: ['Ball.mp3', 'Call.mp3', 'Tall.mp3',
+          'Wall.mp3', 'Fall.mp3' ],
+
+  11: ['Car.mp3', 'Bar.mp3', 'Far.mp3',
+          'Jar.mp3', 'Star.mp3'],
+
+
+  12: ['Cat.mp3', 'Bat.mp3', 'Hat.mp3',
+          'Rat.mp3', 'Sat.mp3'],
+
+
+  13: ['Free.mp3', 'Three.mp3', 'Tree.mp3',
+          'Bee.mp3', 'Knee.mp3'],
+
+  14: ['Shell.mp3', 'Bell.mp3', 'Smell.mp3',
+          'Spell.mp3', 'Swell.mp3'],
+
+  15: ['Duck.mp3', 'Truck.mp3', 'Luck.mp3', 'Buck.mp3', 'Pluck.mp3'],
+
+  16: ['branch.mp3'],
+   // Lesson 8 audio file
+  // Add more lessons and their files as needed
+};
+
+
+
+Future<void> playSound(String word) async {
+  try {
+    String audioPath = 'sounds/'; // Correct base path for all audio files
+
+    // Normalize the word to remove punctuation and simplify matching
+    word = word.split(" ").first; // Use the first word as a simplified approach
+    word = word.replaceAll(RegExp(r'[^\w\s]'), ''); // Remove punctuation
+
+    // Check if the current lesson has any specific audio files mapped
+    if (lessonAudioMap.containsKey(widget.lessonNumber)) {
+      // Get the list of audio files for the current lesson
+      List<String> lessonFiles = lessonAudioMap[widget.lessonNumber]!;
+
+      // Check if the word matches any of the files in this lesson
+      bool foundMatch = false;
+      for (var file in lessonFiles) {
+        if (file.toLowerCase().contains(word.toLowerCase())) {
+          // If a match is found, play the corresponding file
+          audioPath += file;
+          foundMatch = true;
+          break; // Stop once we find the matching file
+        }
+      }
+
+      if (!foundMatch) {
+        // If no match is found, print an error or fallback
+        print("No audio file found for word: $word in Lesson ${widget.lessonNumber}");
+        return;
+      }
+    } else {
+      // If no lesson-specific mapping exists, use a fallback mechanism (if required)
+      print("No audio mapping found for Lesson ${widget.lessonNumber}");
+      return;
+    }
+
+    if (audioPath != 'sounds/') {
+      print("Attempting to play: $audioPath");
+
+      // Play the sound using the corrected asset path
+      Source audioSource = AssetSource(audioPath);
+      await audioPlayer.play(audioSource);
+      print("Playback started for $audioPath");
+    }
+  } catch (e) {
+    print("Error playing sound: ${e.toString()}");
+  }
+}
+
+
+
+
+  @override
+  Widget build(BuildContext context) {
+    final lessonDetails = getLessonDetails(widget.lessonNumber);
+
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.green,
+        title: Text(
+          lessonDetails['title'],
+          style: GoogleFonts.lexendDeca(),
+        ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            child: Text(
+              lessonDetails['subTitle'],
+              style: GoogleFonts.lexendDeca(
+                fontSize: 24,
+                // fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              padding: EdgeInsets.all(8.0),
+              itemCount: lessonDetails['words'].length,
+              itemBuilder: (context, index) {
+                String word = lessonDetails['words'][index];
+                return Container(
+                  padding: EdgeInsets.all(8.0),
+                  margin: EdgeInsets.symmetric(vertical: 5.0),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(8),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        blurRadius: 4,
+                        offset: Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        word,
+                        style: GoogleFonts.lexendDeca(
+                          fontSize: 30,
+                          color: Colors.black,
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          Icons.play_circle,
+                          color: Colors.green,
+                          size: 30,
+                        ),
+                        onPressed: () {
+                          playSound(word);
+                        },
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              // onPressed: () {
+              //   int nextLessonNumber = widget.lessonNumber + 1;
+
+              //   // Navigate to the next lesson, or show a message if no more lessons
+              //   if (nextLessonNumber <= 15) {
+              //     Navigator.push(
+              //       context,
+              //       MaterialPageRoute(
+              //         builder: (context) => LessonDetailScreen(
+              //           lessonNumber: nextLessonNumber,
+              //         ),
+              //       ),
+              //     );
+              //   } else {
+              //     ScaffoldMessenger.of(context).showSnackBar(
+              //       SnackBar(content: Text("No more lessons available!")),
+              //     );
+              //   }
+              // },
+
+              onPressed: () {
+                Navigator.pop(context, widget.lessonNumber);
+                // Navigator.pop(context);
+                print("Proceed Next Lessons");
+              },
+              child: Text(
+                'Next Lesson',
+                style: GoogleFonts.lexendDeca(
+                  fontSize: 20,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

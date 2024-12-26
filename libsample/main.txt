@@ -1,0 +1,42 @@
+// import 'package:cisc_kids/letter_detail_screen.dart';
+import 'package:english_fuller/about.dart';
+import 'package:english_fuller/lesson_list.dart';
+import 'package:flutter/material.dart';
+import 'home_screen.dart';
+// import 'consonantspage.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'ENGLISH FULLER',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      // Define the routes
+      routes: {
+        '/': (context) => HomeScreen(),
+        // '/consonant': (context) => ConsonantsPage(),
+        '/lessonslist': (context) => LessonsList(),
+        // '/gamelist':(context) => GameList(),
+        '/about': (context) => AboutScreen(),
+        
+
+        
+        // '/letterDetail': (context) => LetterDetailScreen(), // This line seems incorrect.
+        // Ensure that 'LetterDetailScreen.routeName' is a static const defined within 'LetterDetailScreen'.
+        // LetterDetailScreen.routeName: (context) => LetterDetailScreen(letter: ''),
+        // The below route seems to be incorrectly commented out. If 'LessonDetailScreen' exists and is needed, uncomment and fix.
+        // LessonDetailScreen.routeName: (context) => LessonDetailScreen(),
+      },
+      // The initialRoute is set to '/', which maps to HomeScreen as defined above.
+      initialRoute: '/',
+    );
+  }
+}

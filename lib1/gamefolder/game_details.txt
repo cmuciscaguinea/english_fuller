@@ -1,0 +1,58 @@
+// game_details.dart
+import 'package:flutter/material.dart';
+import 'game_content.txt'; // Importing game content class
+
+class GameDetailScreen extends StatelessWidget {
+  final int gameId;
+
+  const GameDetailScreen({Key? key, required this.gameId}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    // Get the content for the selected game
+    GameContent gameContent = GameContent.getGameContent(gameId);
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Game $gameId'),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          // Display the image
+          Image.asset(gameContent.imagePath),
+          SizedBox(height: 20),
+          // Display the question and answers
+          Text(
+            'What is this?',
+            style: TextStyle(fontSize: 24),
+          ),
+          SizedBox(height: 20),
+          for (var answer in gameContent.answers)
+            ElevatedButton(
+              onPressed: () {
+                // Handle answer selection
+                if (answer == gameContent.correctAnswer) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Correct!')));
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Incorrect!')));
+                }
+              },
+              child: Text(answer),
+            ),
+          SizedBox(height: 20),
+          // Optionally, play the audio related to the game
+          IconButton(
+            icon: Icon(Icons.play_arrow),
+            onPressed: () {
+              // Play audio (if you have an audio player setup)
+              // For now, you might want to use a package like `audioplayers` to play the sound.
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}

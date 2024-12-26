@@ -1,0 +1,233 @@
+//lessons_details.dart
+
+import 'package:english_fuller/lesson_data.dart';
+import 'package:flutter/material.dart';
+import 'package:audioplayers/audioplayers.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'lesson_audio_map.dart';
+
+
+class LessonDetailScreen extends StatefulWidget {
+  final int lessonNumber;
+  static const String routeName = '/lessondetails';
+
+  LessonDetailScreen({Key? key, required this.lessonNumber}) : super(key: key);
+
+  @override
+  State<LessonDetailScreen> createState() => _LessonDetailScreenState();
+}
+
+
+
+class _LessonDetailScreenState extends State<LessonDetailScreen> {
+  final AudioPlayer audioPlayer = AudioPlayer();
+  int currentWordIndex = -1;  // To keep track of the current word
+
+  // Method to update the current word index
+  void updateCurrentWord(int index) {
+    setState(() {
+      currentWordIndex = index;
+    });
+  }
+
+  @override
+  void dispose() {
+    audioPlayer.release();
+    audioPlayer.dispose();
+    super.dispose();
+  }
+
+
+  Future<void> playSound(String word, int index) async {
+    updateCurrentWord(index);  // Update the current word index
+    
+    try {
+      String audioPath = 'sounds/';
+      String lessonFolder = 'lessons${widget.lessonNumber}';
+
+      if (lessonAudioMap.containsKey(widget.lessonNumber)) {
+        List<String> lessonFiles = lessonAudioMap[widget.lessonNumber]!;
+        
+        bool foundMatch = false;
+        String fileName = '';
+        String bestMatch = '';
+
+        String normalizedWord = word.replaceAll(RegExp(r'[^a-zA-Z\s]'), '').toLowerCase();
+
+        for (var file in lessonFiles) {
+          String normalizedFileName = file.split('.')[0].toLowerCase();
+
+          if (normalizedWord == normalizedFileName) {
+            fileName = file;
+            foundMatch = true;
+            break;
+          }
+
+          if (normalizedWord.contains(normalizedFileName) || normalizedFileName.contains(normalizedWord)) {
+            if (normalizedFileName.length > bestMatch.length) {
+              bestMatch = normalizedFileName;
+              fileName = file;
+              foundMatch = true;
+            }
+          }
+        }
+
+        if (!foundMatch) {
+          print("No audio file found for word: $word in Lesson ${widget.lessonNumber}");
+          return;
+        }
+
+        audioPath += '$lessonFolder/$fileName'; 
+      } else {
+        print("No audio mapping found for Lesson ${widget.lessonNumber}");
+        return;
+      }
+
+      if (audioPath.isNotEmpty) {
+        print("Attempting to play: $audioPath");
+        Source audioSource = AssetSource(audioPath);
+        await audioPlayer.play(audioSource);
+        print("Playback started for $audioPath");
+      }
+    } catch (e) {
+      print("Error playing sound: ${e.toString()}");
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final lessonDetails = getLessonDetails(widget.lessonNumber);
+
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.green,
+        title: Text(
+          lessonDetails['title'],
+          style: GoogleFonts.lexendDeca(),
+        ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            child: Text(
+              lessonDetails['subTitle'],
+              style: GoogleFonts.lexendDeca(
+                fontSize: 25,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              padding: EdgeInsets.all(8.0),
+              itemCount: lessonDetails['words'].length,
+              itemBuilder: (context, index) {
+                String word = lessonDetails['words'][index];
+                bool isLongSentence = word.length > 50;
+
+                return Container(
+                  padding: EdgeInsets.all(8.0),
+                  margin: EdgeInsets.symmetric(vertical: 5.0),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(8),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        blurRadius: 4,
+                        offset: Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                  child: isLongSentence
+                      ? Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              word,
+                              style: GoogleFonts.lexendDeca(
+                                fontSize: 30,
+                                color: currentWordIndex == index ? Colors.green : Colors.black,
+                                height: 1.5,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                            SizedBox(height: 8.0),
+                            IconButton(
+                              icon: Icon(
+                                Icons.play_circle,
+                                color: Colors.green,
+                                size: 40,
+                              ),
+                              onPressed: () {
+                                playSound(word, index);
+                              },
+                            ),
+                          ],
+                        )
+                      : Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: Text(
+                                word,
+                                style: GoogleFonts.lexendDeca(
+                                  fontSize: 30,
+                                  color: currentWordIndex == index ? Colors.green : Colors.black,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                            ),
+                            IconButton(
+                              icon: Icon(
+                                Icons.play_circle,
+                                color: Colors.green,
+                                size: 40,
+                              ),
+                              onPressed: () {
+                                playSound(word, index);
+                              },
+                            ),
+                          ],
+                        ),
+                );
+              },
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 100),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              onPressed: () {
+                Navigator.pop(context, widget.lessonNumber);
+                print("Proceed Next Lessons");
+              },
+              child: Text(
+                'Next Lesson',
+                style: GoogleFonts.lexendDeca(
+                  fontSize: 20,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

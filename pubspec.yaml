@@ -1,0 +1,142 @@
+name: english_fuller
+description: "A new Flutter project."
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+
+version: 1.0.0+1
+# version: 0.1.0
+
+environment:
+  sdk: '>=3.3.2 <4.0.0'
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # audioplayers: ^6.0.0
+  audioplayers: ^6.1.0
+  #audioplayers: ^0.20.1
+  permission_handler: ^10.0.0
+  flutter_sound: ^9.1.5
+  path_provider: ^2.0.11
+  google_fonts: ^5.0.0
+  rename_app: ^1.6.1
+  flutter_lints: ^2.0.0
+
+  cupertino_icons: ^1.0.6
+  shared_preferences: ^2.0.15
+
+
+dev_dependencies:
+  audioplayers_platform_interface: ^7.0.0
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: "^0.13.1"
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon/appicon2.2.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  
+   
+   
+# flutter_icons:
+#   android: true
+#   ios: true
+#   image_path_android: "assets/icon/appicon2.2.png"
+#   adaptive_icon_background: "assets/icon/appicon2.2.png"
+
+
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/icon/appbg.jpg
+    - assets/logo/applogo1.png
+    - assets/logo/applogo1.2.png
+    - assets/icon/appicon4.png
+    - assets/images/
+    - assets/icon/
+    - assets/profile/
+    - assets/audio/
+    - assets/sounds/lessons1/
+    - assets/sounds/lessons2/
+    - assets/sounds/lessons3/
+    - assets/sounds/lessons4/
+    - assets/sounds/lessons4/
+    - assets/sounds/lessons5/
+    - assets/sounds/lessons6/
+    - assets/sounds/lessons7/
+    - assets/sounds/lessons8/
+    - assets/sounds/lessons9/
+    - assets/sounds/lessons10/
+    - assets/sounds/lessons11/
+    - assets/sounds/lessons12/
+    - assets/sounds/lessons13/
+    - assets/sounds/lessons14/
+    - assets/sounds/lessons15/
+    - assets/sounds/lessons16/
+    - assets/sounds/lessons17/
+    - assets/sounds/lessons18/
+    - assets/sounds/lessons19/
+    - assets/sounds/lessons20/
+    - assets/sounds/lessons21/
+    - assets/sounds/lessons22/
+    - assets/sounds/lessons23/
+    - assets/sounds/lessons24/
+    - assets/sounds/lessons25/
+    - assets/sounds/lessons26/
+    - assets/sounds/lessons27/
+    - assets/sounds/lessons28/
+    - assets/sounds/lessons29/
+    - assets/sounds/lessons30/
+    - assets/sounds/lessons31/
+    - assets/sounds/lessons32/
+    - assets/sounds/lessons33/
+    - assets/sounds/lessons34/
+    - assets/sounds/lessons35/
+    - assets/sounds/lessons36/
+    - assets/sounds/lessons37/
+    - assets/sounds/lessons38/
+    - assets/sounds/lessons39/
+    - assets/sounds/lessons40/
+    - assets/sounds/lessons41/
+    - assets/sounds/lessons42/
+    - assets/sounds/lessons43/
+    - assets/sounds/lessons44/
+    - assets/sounds/lessons45/
+    - assets/sounds/lessons46/
+    - assets/sounds/lessons47/
+    - assets/sounds/lessons48/
+    - assets/sounds/lessons49/
+    - assets/sounds/lessons50/
+    - assets/sounds/lessons51/
+    - assets/sounds/lessons52/
+    - assets/sounds/lessons53/
+    - assets/sounds/lessons54/
+    - assets/sounds/lessons55/
+    - assets/sounds/lessons56/
+    - assets/sounds/lessons57/
+    - assets/sounds/lessons58/
+    - assets/sounds/lessons59/
+    - assets/sounds/lessons60/
+    # - assets/audio/Fail.mp3
+
+    
+    
+
+  # assets:
+  #   # - assets/sounds/aa.mp3
+  #   - assets/sounds/
+  #   - assets/bg4.png
+  #   - assets/logo.png
+    
+    
+
+
+flutter_launcher_name:
+  name: "English Fuller"
+  

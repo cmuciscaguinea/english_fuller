@@ -1,0 +1,105 @@
+class GameContent {
+  final String correctAnswer;
+  final List<String> answers;
+  final String imagePath;
+  final String audioPath;
+
+  GameContent({
+    required this.correctAnswer,
+    required this.answers,
+    required this.imagePath,
+    required this.audioPath,
+  });
+
+  static GameContent getGameContent(int gameId) {
+    // Define the content for each game
+    switch (gameId) {
+      case 1:
+        return GameContent(
+          correctAnswer: "Bag",
+          answers: ["Bag", "Mug", "Lamp", "Hat"],
+          imagePath: "assets/images/bag.png",
+          audioPath: "/audio/bag.mp3",
+        );
+      case 2:
+        return GameContent(
+          correctAnswer: "Ball",
+          answers: ["Cat", "Lion", "Ball", "Apple"],
+          imagePath: "assets/images/ball.png",
+          audioPath: "/audio/ball.mp3",
+        );
+      case 3:
+        return GameContent(
+          correctAnswer: "Jar",
+          answers: ["Bird", "Fish", "Truck", "Jar"],
+          imagePath: "assets/images/jar.png",
+          audioPath: "/audio/jar.mp3",
+        );
+
+      case 4:
+        return GameContent(
+          correctAnswer: "Cart",
+          answers: ["Mart", "Man", "Ant", "Cart"],
+          imagePath: "assets/images/cart.png",
+          audioPath: "/audio/cart.mp3",
+        );
+
+      case 5:
+        return GameContent(
+          correctAnswer: "Cat",
+          answers: ["Bird", "Hen", "Dog", "Cat"],
+          imagePath: "assets/images/cat.png",
+          audioPath: "/audio/cat.mp3",
+        );
+
+      case 6:
+        return GameContent(
+          correctAnswer: "Duck",
+          answers: ["Bird", "Fish", "Duck", "Car"],
+          imagePath: "assets/images/duck.png",
+          audioPath: "/audio/duck.mp3",
+        );
+
+      case 7:
+        return GameContent(
+          correctAnswer: "Shark",
+          answers: ["Fish", "Women", "Dolphin", "Car"],
+          imagePath: "assets/images/shark.png",
+          audioPath: "/audio/shark.mp3",
+        );
+
+      case 8:
+        return GameContent(
+          correctAnswer: "Shovel",
+          answers: ["Shovel", "Stone", "Water", "Cup"],
+          imagePath: "assets/images/shovel.png",
+          audioPath: "/audio/shovel.mp3",
+        );
+
+      case 9:
+        return GameContent(
+          correctAnswer: "Star",
+          answers: ["Sun", "Star", "Moon", "Earth"],
+          imagePath: "assets/images/star.png",
+          audioPath: "/audio/star.mp3",
+        );
+
+      case 10:
+        return GameContent(
+          correctAnswer: "Tree",
+          answers: ["Root", "Flower", "Tree", "Plant"],
+          imagePath: "assets/images/tree.png",
+          audioPath: "/audio/tree.mp3",
+        );
+
+
+      default:
+        return GameContent(
+          correctAnswer: "Dog",
+          answers: ["Dog", "Manga", "Apple", "Fish"],
+          imagePath: "assets/images/default.jpg",
+          audioPath: "/audio/dog.mp3",
+        );
+    }
+  }
+}

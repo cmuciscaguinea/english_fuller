@@ -1,0 +1,63 @@
+import 'package:flutter/material.dart';
+import 'package:english_fuller/about.dart';
+import 'package:english_fuller/lesson_list.dart';
+import 'home_screen.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  // Simulate some async initialization task
+  Future<void> _simulateInitialization() async {
+    await Future.delayed(Duration(seconds: 3)); // Simulate a 3-second loading process
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'ENGLISH FULLER',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      routes: {
+        '/lessonslist': (context) => LessonsList(),
+        '/about': (context) => AboutScreen(),
+      },
+      // Set 'home' to the screen you want to show initially
+      home: FutureBuilder(
+        future: _simulateInitialization(),  // Simulate some async work
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Scaffold(
+              body: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    // Display your logo here
+                    Image.asset('assets/logo/applogo1.png', height: 300),  // Correct path
+                    SizedBox(height: 20),  // Space between logo and loading indicator
+                    CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.green),  // Set loading color to green
+                    ),
+                  ],
+                ),
+              ),
+            );
+          } else if (snapshot.hasError) {
+            return Scaffold(
+              body: Center(
+                child: Text('Error loading app: ${snapshot.error}'),
+              ),
+            );
+          } else {
+            return HomeScreen();
+          }
+        },
+      ),
+    );
+  }
+}
