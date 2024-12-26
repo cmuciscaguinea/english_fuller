@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
       routes: {
          '/lessonslist': (context) => const LessonsList(),
         '/about': (context) => AboutScreen(),
-        '/gamelist': (context) => GameList(),
+        '/gamelist': (context) => const GameList(),
       },
       // Set 'home' to the screen you want to show initially
       home: FutureBuilder(

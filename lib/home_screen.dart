@@ -39,8 +39,8 @@ class HomeScreen extends StatelessWidget {
             '1. Click Start Learning to learn the lessons.\n'
             '2. Theres 60 lessons to learn.\n'
             '3. Play button to play a sound of letters and words. ▶️🎵\n'
-            '4. Read, listen, and practice to improve your understanding. 📖👂\n'
-            '5. Also thers progress score in lessons to improve your understanding. 💯\n'
+            '4. Read, listen, and practice to improve your learning. 📖👂\n'
+            '5. Also theres progress score in lessons to improve your understanding. 💯\n'
             '6. As mark check in lessons if you complete the progress score. ✔',
             style: GoogleFonts.lexendDeca(fontSize: 16),
           ),

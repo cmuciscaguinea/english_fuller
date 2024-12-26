@@ -21,6 +21,8 @@ class AboutScreen extends StatelessWidget {
   final String counterparts =
       'English Fuller app builds on the legacy of other groundbreaking projects under the CISC KIDS initiative, such as:\n';
 
+  AboutScreen({super.key});
+
       
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class AboutScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.green,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: Text(
@@ -51,7 +53,7 @@ class AboutScreen extends StatelessWidget {
                       height: 120,
                       width: 120,
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Text(
                       'English Fuller App',
                       style: GoogleFonts.lexendDeca(
@@ -64,7 +66,7 @@ class AboutScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
 
               // About the App Section
               Text(
@@ -74,7 +76,7 @@ class AboutScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Text(
                 aboutApp,
                 style: GoogleFonts.lexendDeca(
@@ -83,7 +85,7 @@ class AboutScreen extends StatelessWidget {
                 ),
                 textAlign: TextAlign.justify,
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
 
               // Collaboration Section
               Text(
@@ -93,7 +95,7 @@ class AboutScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Text(
                 collaborationDetails,
                 style: GoogleFonts.lexendDeca(
@@ -102,7 +104,7 @@ class AboutScreen extends StatelessWidget {
                 ),
                 textAlign: TextAlign.justify,
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
 
               // Developers Section
               Text(
@@ -112,7 +114,7 @@ class AboutScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Column(
                 children: [
                   // First developer
@@ -122,7 +124,7 @@ class AboutScreen extends StatelessWidget {
                       Container(
                         width: 60, // Adjust width for the image
                         height: 60, // Adjust height for the image
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           shape: BoxShape.rectangle,
                           image: DecorationImage(
                             image: AssetImage('assets/profile/developer1.png'), // Replace with the profile picture of the first developer
@@ -130,7 +132,7 @@ class AboutScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(width: 15), // Spacing between image and text
+                      const SizedBox(width: 15), // Spacing between image and text
                       Expanded(
                         child: Text(
                           'Joemar M. Aguinea\n Developer', // Use \n for role alignment
@@ -142,7 +144,7 @@ class AboutScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20), // Space between developers
+                  const SizedBox(height: 20), // Space between developers
 
                   // Second developer
                   Row(
@@ -151,7 +153,7 @@ class AboutScreen extends StatelessWidget {
                       Container(
                         width: 60, // Adjust width for the image
                         height: 60, // Adjust height for the image
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           shape: BoxShape.rectangle,
                           image: DecorationImage(
                             image: AssetImage('assets/profile/developer2.png'), // Replace with the profile picture of the second developer
@@ -159,7 +161,7 @@ class AboutScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(width: 15), // Spacing between image and text
+                      const SizedBox(width: 15), // Spacing between image and text
                       Expanded(
                         child: Text(
                           'Jay C. Ranes\n Developer', // Use \n for role alignment
@@ -174,7 +176,7 @@ class AboutScreen extends StatelessWidget {
                 ],
               ),
 
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
 
               // Counterparts App Section
               Text (
@@ -184,7 +186,7 @@ class AboutScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Text(
                 counterparts,
                 style: GoogleFonts.lexendDeca(
@@ -193,7 +195,7 @@ class AboutScreen extends StatelessWidget {
                 ),
                 textAlign: TextAlign.justify,
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Column(
                 children: [
                   // First counterpart item
@@ -205,7 +207,7 @@ class AboutScreen extends StatelessWidget {
                         height: 70,
                         width: 70,
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Expanded(
                         child: Text(
                           '1. CISC KIDS: Marungko Approach Simula sa Pagbasa, which emphasizes phonics-based literacy learning.\n',
@@ -229,7 +231,7 @@ class AboutScreen extends StatelessWidget {
                         height: 70,
                         width: 70,
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Expanded(
                         child: Text(
                           '2. CISC KIDS: Reading Comprehension, which focuses on enhancing comprehension skills through technology.\n',
@@ -253,10 +255,10 @@ class AboutScreen extends StatelessWidget {
                         height: 70,
                         width: 70,
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Expanded(
                         child: Text(
-                          '3. CISC KIDS: Beginnging Reading English Fuller Approach, which integrates phonics, vocabulary building, and alphabet mastery to support early literacy development.',
+                          '3. CISC KIDS: Beginnging Reading English Fuller, which integrates phonics, vocabulary building, and alphabet mastery to support early literacy development.',
                           style: GoogleFonts.lexendDeca(
                             fontSize: 16,
                             height: 1.5,
