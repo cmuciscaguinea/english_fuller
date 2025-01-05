@@ -15,7 +15,7 @@ class AboutScreen extends StatelessWidget {
       'Key features include guided lessons, audio pronunciation, and game-based activities, making it both educational and enjoyable.';
 
   final String collaborationDetails =
-      'Our excellent professors, Mr. Kent Levi Bonifacio, Mrs. Gladys S. Ayunar, and Mrs. Nathalie Joy G. Casildo, led this collaborative endeavor. Their knowledge and input were crucial throughout the projects development.\n\n'
+      'Our excellent professors, Mr. Kent Levi Bonifacio, Mrs. Gladys S. Ayunar, Mrs. Nathalie Joy G. Casildo and Mrs, led this collaborative endeavor. Their knowledge and input were crucial throughout the projects development.\n\n'
       'We especially thank English teacher Mrs. Leah Culaste Angana, Ph.D., for her expert voice and sound recordings that guaranteed proper pronunciation and improved the educational value of the app.';
 
   final String counterparts =
