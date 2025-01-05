@@ -58,6 +58,11 @@ class _GameListState extends State<GameList> {
   });
 }
 
+void clearAppData() async {
+  final prefs = await SharedPreferences.getInstance();
+  await prefs.clear(); // Clear all SharedPreferences data
+}
+
 
   /// Load progress from SharedPreferences
   /// Load progress from SharedPreferences

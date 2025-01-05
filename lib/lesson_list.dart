@@ -99,6 +99,11 @@ class _LessonsListState extends State<LessonsList> {
     prefs.setStringList('completedLessons', completedLessons.map((e) => e.toString()).toList());
   }
 
+  void clearAppData() async {
+  final prefs = await SharedPreferences.getInstance();
+  await prefs.clear(); // Clear all SharedPreferences data
+  }
+
   // Reset all completed lessons and progress
   void resetCompletedLessons() async {
   final prefs = await SharedPreferences.getInstance();
@@ -131,7 +136,7 @@ class _LessonsListState extends State<LessonsList> {
         title: Text('The Lessons', style: GoogleFonts.lexendDeca()),
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.home),
+          icon: const Icon(Icons.home),
           onPressed: () {
             // Navigate to home screen when all lessons are complete
             Navigator.pop(context); // Pop back to the previous screen (home screen)
@@ -170,7 +175,7 @@ class _LessonsListState extends State<LessonsList> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.green, // Keep the button always green
                       disabledBackgroundColor: Colors.green, // Button stays green even when disabled
-                      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -186,7 +191,7 @@ class _LessonsListState extends State<LessonsList> {
                           ),
                         ),
                         if (isCompleted)
-                          Icon(
+                          const Icon(
                             Icons.check,
                             color: Colors.white, // White check icon
                             size: 24,
@@ -199,23 +204,23 @@ class _LessonsListState extends State<LessonsList> {
             ),
           ),
           // Button to reset completed lessons
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton(
-              onPressed: resetCompletedLessons,
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red, // Button color for reset
-                padding: EdgeInsets.symmetric(horizontal: 80, vertical: 20),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-              child: Text(
-                'Reset All Lessons',
-                style: GoogleFonts.lexendDeca(fontSize: 20, color: Colors.white),
-              ),
-            ),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.all(8.0),
+          //   child: ElevatedButton(
+          //     onPressed: resetCompletedLessons,
+          //     style: ElevatedButton.styleFrom(
+          //       backgroundColor: Colors.red, // Button color for reset
+          //       padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 20),
+          //       shape: RoundedRectangleBorder(
+          //         borderRadius: BorderRadius.circular(10),
+          //       ),
+          //     ),
+          //     child: Text(
+          //       'Reset All Lessons',
+          //       style: GoogleFonts.lexendDeca(fontSize: 20, color: Colors.white),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );

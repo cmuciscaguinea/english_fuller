@@ -39,11 +39,6 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
                       [1, 2, 3, 4, 5, 6, 10, 60].contains(widget.lessonNumber));
   }
 
-  void clearAppData() async {
-  final prefs = await SharedPreferences.getInstance();
-  await prefs.clear(); // Clear all SharedPreferences data
-  }
-
   @override
   void dispose() {
     // Stop the audio player and release resources

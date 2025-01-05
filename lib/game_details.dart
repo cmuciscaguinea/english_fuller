@@ -45,6 +45,11 @@ class _GameDetailPageState extends State<GameDetailPage> {
     _loadProgress(); // Load saved score for the current level when the page loads
   }
 
+  void clearAppData() async {
+  final prefs = await SharedPreferences.getInstance();
+  await prefs.clear(); // Clear all SharedPreferences data
+  }
+
   @override
   void dispose() {
     // Stop the audio player and release resources

@@ -104,21 +104,21 @@ Map<String, dynamic> getLessonDetails(int lessonNumber) {
 
       10: {
         'title': 'Lesson $lessonNumber',
-        'subTitle': 'Rythming Words /al/',
+        'subTitle': 'Rhyming Words /al/',
         'words': ['Ball', 'Call', 'Tall',
           'Wall', 'Fall'],
       },
 
       11: {
         'title': 'Lesson $lessonNumber',
-        'subTitle': 'Rythming Words /ar/',
+        'subTitle': 'Rhyming Words /ar/',
         'words': ['Car', 'Bar', 'Far',
           'Jar', 'Star'],
       },
 
       12: {
         'title': 'Lesson $lessonNumber',
-        'subTitle': 'Rythming Words /at/',
+        'subTitle': 'Rhyming Words /at/',
         'words': ['Cat', 'Bat', 'Hat',
           'Rat', 'Sat'],
       },
@@ -126,14 +126,14 @@ Map<String, dynamic> getLessonDetails(int lessonNumber) {
 
       13: {
         'title': 'Lesson $lessonNumber',
-        'subTitle': 'Rythming Words /ee/',
+        'subTitle': 'Rhyming Words /ee/',
         'words': ['Free', 'Three', 'Tree',
           'Bee', 'Knee'],
       },
 
       14: {
         'title': 'Lesson $lessonNumber',
-        'subTitle': 'Rythming Words /ell/',
+        'subTitle': 'Rhyming Words /ell/',
         'words': ['Shell', 'Bell', 'Smell',
           'Spell', 'Swell'],
       },
