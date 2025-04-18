@@ -1,7 +1,6 @@
 // about.dart
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AboutScreen extends StatelessWidget {
   final List<String> memberNames = [
@@ -23,7 +22,6 @@ class AboutScreen extends StatelessWidget {
 
   AboutScreen({super.key});
 
-      
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,9 +31,11 @@ class AboutScreen extends StatelessWidget {
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: Text(
+        title: const Text(
           'About',
-          style: GoogleFonts.lexendDeca(),
+          style: TextStyle(
+            fontFamily: 'LexendDeca', // Use the custom offline font
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -54,9 +54,10 @@ class AboutScreen extends StatelessWidget {
                       width: 120,
                     ),
                     const SizedBox(height: 10),
-                    Text(
+                    const Text(
                       'English Fuller App',
-                      style: GoogleFonts.lexendDeca(
+                      style: TextStyle(
+                        fontFamily: 'LexendDeca',
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
                         height: 2,
@@ -69,9 +70,10 @@ class AboutScreen extends StatelessWidget {
               const SizedBox(height: 30),
 
               // About the App Section
-              Text(
+              const Text(
                 'About the App',
-                style: GoogleFonts.lexendDeca(
+                style: TextStyle(
+                  fontFamily: 'LexendDeca',
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                 ),
@@ -79,7 +81,8 @@ class AboutScreen extends StatelessWidget {
               const SizedBox(height: 10),
               Text(
                 aboutApp,
-                style: GoogleFonts.lexendDeca(
+                style: const TextStyle(
+                  fontFamily: 'LexendDeca',
                   fontSize: 16,
                   height: 1.5,
                 ),
@@ -88,9 +91,10 @@ class AboutScreen extends StatelessWidget {
               const SizedBox(height: 30),
 
               // Collaboration Section
-              Text(
+              const Text(
                 'Collaboration',
-                style: GoogleFonts.lexendDeca(
+                style: TextStyle(
+                  fontFamily: 'LexendDeca',
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                 ),
@@ -98,7 +102,8 @@ class AboutScreen extends StatelessWidget {
               const SizedBox(height: 10),
               Text(
                 collaborationDetails,
-                style: GoogleFonts.lexendDeca(
+                style: const TextStyle(
+                  fontFamily: 'LexendDeca',
                   fontSize: 16,
                   height: 1.5,
                 ),
@@ -107,9 +112,10 @@ class AboutScreen extends StatelessWidget {
               const SizedBox(height: 30),
 
               // Developers Section
-              Text(
+              const Text(
                 'Developers',
-                style: GoogleFonts.lexendDeca(
+                style: TextStyle(
+                  fontFamily: 'LexendDeca',
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                 ),
@@ -133,10 +139,11 @@ class AboutScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(width: 15), // Spacing between image and text
-                      Expanded(
+                      const Expanded(
                         child: Text(
                           'Joemar M. Aguinea\n Developer', // Use \n for role alignment
-                          style: GoogleFonts.lexendDeca(
+                          style: TextStyle(
+                            fontFamily: 'LexendDeca',
                             fontSize: 16,
                             height: 1.4,
                           ),
@@ -162,10 +169,11 @@ class AboutScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(width: 15), // Spacing between image and text
-                      Expanded(
+                      const Expanded(
                         child: Text(
                           'Jay C. Ranes\n Developer', // Use \n for role alignment
-                          style: GoogleFonts.lexendDeca(
+                          style: TextStyle(
+                            fontFamily: 'LexendDeca',
                             fontSize: 16,
                             height: 1.4,
                           ),
@@ -179,9 +187,10 @@ class AboutScreen extends StatelessWidget {
               const SizedBox(height: 30),
 
               // Counterparts App Section
-              Text (
+              const Text(
                 'Counterparts App',
-                style: GoogleFonts.lexendDeca(
+                style: TextStyle(
+                  fontFamily: 'LexendDeca',
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                 ),
@@ -189,7 +198,8 @@ class AboutScreen extends StatelessWidget {
               const SizedBox(height: 10),
               Text(
                 counterparts,
-                style: GoogleFonts.lexendDeca(
+                style: const TextStyle(
+                  fontFamily: 'LexendDeca',
                   fontSize: 16,
                   height: 1.5,
                 ),
@@ -208,10 +218,11 @@ class AboutScreen extends StatelessWidget {
                         width: 70,
                       ),
                       const SizedBox(width: 10),
-                      Expanded(
+                      const Expanded(
                         child: Text(
-                          '1. CISC KIDS: Marungko Approach Simula sa Pagbasa, which emphasizes phonics-based literacy learning.\n',
-                          style: GoogleFonts.lexendDeca(
+                          '1. CISC KIDS: Beginnging Reading English Fuller, which integrates phonics, vocabulary building, and alphabet mastery to support early literacy development.\n',
+                          style: TextStyle(
+                            fontFamily: 'LexendDeca',
                             fontSize: 16,
                             height: 1.5,
                           ),
@@ -232,10 +243,11 @@ class AboutScreen extends StatelessWidget {
                         width: 70,
                       ),
                       const SizedBox(width: 10),
-                      Expanded(
+                      const Expanded(
                         child: Text(
-                          '2. CISC KIDS: Reading Comprehension, which focuses on enhancing comprehension skills through technology.\n',
-                          style: GoogleFonts.lexendDeca(
+                          '2. CISC KIDS: Marungko Approach Simula sa Pagbasa, which emphasizes phonics-based literacy learning.\n',
+                          style: TextStyle(
+                            fontFamily: 'LexendDeca',
                             fontSize: 16,
                             height: 1.5,
                           ),
@@ -244,7 +256,6 @@ class AboutScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  
 
                   // Third counterpart item
                   Row(
@@ -256,10 +267,11 @@ class AboutScreen extends StatelessWidget {
                         width: 70,
                       ),
                       const SizedBox(width: 10),
-                      Expanded(
+                      const Expanded(
                         child: Text(
-                          '3. CISC KIDS: Beginnging Reading English Fuller, which integrates phonics, vocabulary building, and alphabet mastery to support early literacy development.',
-                          style: GoogleFonts.lexendDeca(
+                          '3. CISC KIDS: Reading Comprehension, which focuses on enhancing comprehension skills through technology.',
+                          style: TextStyle(
+                            fontFamily: 'LexendDeca',
                             fontSize: 16,
                             height: 1.5,
                           ),

@@ -1,7 +1,6 @@
 //lesson_list.dart
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'lesson_details.dart';
 
@@ -92,16 +91,17 @@ class _LessonsListState extends State<LessonsList> {
   });
 }
 
+void clearAppData() async {
+  final prefs = await SharedPreferences.getInstance();
+  await prefs.clear(); // Clear all SharedPreferences data
+}
+
+
 
   // Save completed lessons to SharedPreferences
   void saveCompletedLessons() async {
     final prefs = await SharedPreferences.getInstance();
     prefs.setStringList('completedLessons', completedLessons.map((e) => e.toString()).toList());
-  }
-
-  void clearAppData() async {
-  final prefs = await SharedPreferences.getInstance();
-  await prefs.clear(); // Clear all SharedPreferences data
   }
 
   // Reset all completed lessons and progress
@@ -133,7 +133,7 @@ class _LessonsListState extends State<LessonsList> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green,
-        title: Text('The Lessons', style: GoogleFonts.lexendDeca()),
+        title: const Text('The Lessons', style: TextStyle(fontFamily: 'LexendDeca'),),
         centerTitle: true,
         leading: IconButton(
           icon: const Icon(Icons.home),
@@ -183,10 +183,11 @@ class _LessonsListState extends State<LessonsList> {
                         Flexible(
                           child: Text(
                             lessons[index],
-                            style: GoogleFonts.lexendDeca(
-                              fontSize: 18,
-                              color: Colors.white, // Text always white
-                            ),
+                            style: const TextStyle(
+                        fontFamily: 'LexendDeca', // Offline font
+                        fontSize: 17,
+                        color: Colors.white,
+                      ),
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),

@@ -15,8 +15,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        textTheme: GoogleFonts.lexendDecaTextTheme(Theme.of(context).textTheme),
-      ),
+        textTheme: Theme.of(context).textTheme.apply(
+           fontFamily: 'LexendDeca', // Apply the offline LexendDeca font globally
+           ),
+        ),
       home: const HomeScreen(),
     );
   }
@@ -33,16 +35,16 @@ class HomeScreen extends StatelessWidget {
         return AlertDialog(
           title: Text(
             'How to Use Lessons',
-            style: GoogleFonts.lexendDeca(fontWeight: FontWeight.bold),
+            style: GoogleFonts.lexendDeca(fontSize: 20, fontWeight: FontWeight.bold),
           ),
-          content: Text(
-            '1. Click Start Learning to learn the lessons.\n'
-            '2. Theres 60 lessons to learn.\n'
-            '3. Play button to play a sound of letters and words. ▶️🎵\n'
-            '4. Read, listen, and practice to improve your learning. 📖👂\n'
-            '5. Also theres progress score in lessons to improve your understanding. 💯\n'
-            '6. As mark check in lessons if you complete the progress score. ✔',
-            style: GoogleFonts.lexendDeca(fontSize: 16),
+          content: const Text(
+            '1. Tap Start Learning to begin.\n'
+            '2. Explore 60 lessons.\n'
+            '3. Use the Play button to hear letters and words. ▶️🎵\n'
+            '4. Read, listen, and practice to improve. 📖👂\n'
+            '5. Track your progress score to enhance understanding. 💯\n'
+            '6. Mark lessons complete when progress is achieved. ✔',
+             style: TextStyle(fontFamily: 'LexendDeca', fontSize: 15),
           ),
           actions: <Widget>[
             TextButton(
@@ -50,11 +52,12 @@ class HomeScreen extends StatelessWidget {
                 Navigator.of(context).pop(); // Close the dialog
                 Navigator.pushNamed(context, '/lessonslist'); // Navigate to lessons
               },
-              child: Text(
+              child: const Text(
                 'Start Learning',
-                style: GoogleFonts.lexendDeca(
+                style: TextStyle(
                   color: Colors.green,
                   fontWeight: FontWeight.bold,
+                  fontFamily: 'LexendDeca',
                   fontSize: 18
                 ),
               ),
@@ -63,12 +66,13 @@ class HomeScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop(); // Close the dialog
               },
-              child: Text(
+              child: const Text(
                 'Cancel',
-                style: GoogleFonts.lexendDeca(
-                  color: Colors.red,  
+                style: TextStyle(
+                  color: Colors.red,
                   fontWeight: FontWeight.bold,
-                  fontSize: 18
+                  fontSize: 18,
+                  fontFamily: 'LexendDeca',
                 ),
               ),
             ),
@@ -84,18 +88,18 @@ class HomeScreen extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text(
-            'How to Play',
-            style: GoogleFonts.lexendDeca(fontWeight: FontWeight.bold),
+          title: const Text(
+            'How to Play a Game',
+           style: TextStyle(fontFamily: 'LexendDeca', fontSize: 20, fontWeight: FontWeight.bold),
           ),
           content: Text(
-            '1. Click Start Playing to play the game.\n'
-            '2. There three categories of games: Easy, Moderate and Hard.\n'
-            '3. Every categories has five levels. 🌟🌟🌟🌟🌟\n'
-            '3. There Play button to play the sound of words & letters. ▶️👂🎵 \n'
+            '1. Tap Start Playing to begin.\n'
+            '2. Choose from three game Levels.\n'
+            '3. Each game levels has 5 questions. 🌟🌟🌟🌟🌟\n'
+            '3. Use the Play button to hear words & letters. ▶️👂🎵 \n'
             '4. Complete all levels to score points. 🌟🌟🌟\n'
-            '5. Enjoy learning with games! ❤🎉🎈',
-            style: GoogleFonts.lexendDeca(fontSize: 16,),
+            '5. Have fun learning!  ❤🎉🎈',
+            style: GoogleFonts.lexendDeca(fontSize: 15,),
           ),
           actions: <Widget>[
             TextButton(
@@ -103,11 +107,12 @@ class HomeScreen extends StatelessWidget {
                 Navigator.of(context).pop(); // Close the dialog
                 Navigator.pushNamed(context, '/gamelist'); // Navigate to games
               },
-              child: Text(
+              child: const Text(
                 'Start Playing',
-                style: GoogleFonts.lexendDeca(
+                style: TextStyle(
                   color: Colors.green,
                   fontWeight: FontWeight.bold,
+                  fontFamily: 'LexendDeca',
                   fontSize: 18,
                 ),
               ),
@@ -116,12 +121,14 @@ class HomeScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop(); // Close the dialog
               },
-              child: Text(
+              child: const Text(
                 'Cancel',
-                style: GoogleFonts.lexendDeca(
-                  color: Colors.red,  
+                style: TextStyle(
+                  color: Colors.red,
+                  fontFamily: 'LexendDeca',
                   fontWeight: FontWeight.bold,
-                  fontSize: 18,),
+                  fontSize: 18,
+                ),
               ),
             ),
           ],
@@ -134,10 +141,11 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'English Fuller',
-          style: GoogleFonts.lexendDeca(
+          style: TextStyle(
             color: Colors.black,
+            fontFamily: 'LexendDeca',
           ),
         ),
         centerTitle: true,
@@ -171,11 +179,12 @@ class HomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(50),
                   ),
                 ),
-                child: Text(
-                  'The Lessons',
-                  style: GoogleFonts.lexendDeca(
+                child: const Text(
+                  'Lessons',
+                  style: TextStyle(
                     fontSize: 20,
                     color: Colors.white,
+                    fontFamily: 'LexendDeca',
                   ),
                 ),
               ),
@@ -192,11 +201,12 @@ class HomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(50),
                   ),
                 ),
-                child: Text(
-                  'The Games',
-                  style: GoogleFonts.lexendDeca(
+                child: const Text(
+                  'Games',
+                  style: TextStyle(
                     fontSize: 20,
                     color: Colors.white,
+                    fontFamily: 'LexendDeca',
                   ),
                 ),
               ),
@@ -206,11 +216,12 @@ class HomeScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, '/about');
                 },
-                child: Text(
+                child: const Text(
                   'About',
-                  style: GoogleFonts.lexendDeca(
+                  style: TextStyle(
                     fontSize: 20,
                     color: Colors.green,
+                    fontFamily: 'LexendDeca',
                   ),
                 ),
               ),

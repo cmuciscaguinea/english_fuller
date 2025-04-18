@@ -2,7 +2,6 @@
 
 import 'package:english_fuller/game_details.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// Data model to hold game details.
@@ -11,130 +10,100 @@ class GameData {
   final String title;
   final Color color;
   final Color textColor;
-  final String gameTitle; 
+  final String gameTitle;
 
-  GameData({required this.id, 
-  required this.title, 
-  required this.color, 
-  required this.textColor, 
-  required this.gameTitle,  });
+  GameData({
+    required this.id,
+    required this.title,
+    required this.color,
+    required this.textColor,
+    required this.gameTitle,
+  });
 }
 
 // List of games with their properties.
 final List<GameData> games = [
-  GameData(id: 1, title: "Easy", color: Colors.yellow, textColor: Colors.black, gameTitle: 'Easy'),
-  GameData(id: 2, title: "Moderate", color: const Color.fromARGB(255, 255, 193, 59), textColor: Colors.black, gameTitle: 'Moderate'),
-  GameData(id: 3, title: "Hard", color: Colors.orange, textColor: Colors.black, gameTitle: 'Hard'),
+  GameData(id: 1, title: "Level 1", color: Colors.yellow, textColor: Colors.black, gameTitle: 'Level 1'),
+  GameData(id: 2, title: "Level 2", color: const Color.fromARGB(255, 255, 193, 59), textColor: Colors.black, gameTitle: 'Level 2'),
+  GameData(id: 3, title: "Level 3", color: Colors.orange, textColor: Colors.black, gameTitle: 'Level 3'),
 ];
 
 class GameList extends StatefulWidget {
   const GameList({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _GameListState createState() => _GameListState();
 }
 
 class _GameListState extends State<GameList> {
-  Set<int> completedGames = {}; // Tracks completed games
-  Map<int, int> gameProgress = {}; // Store progress for each game category
+  Set<int> completedGames = {};
+  Map<int, int> gameProgress = {};
 
   @override
   void initState() {
     super.initState();
-    _loadProgress(); // Load progress from SharedPreferences
+    _loadProgress();
   }
 
-  /// Reset all completed games
-  void _resetCompletedGames() async {
-  final prefs = await SharedPreferences.getInstance();
-  
-  // Clear all saved progress from SharedPreferences
-  await prefs.clear();
-  
-  setState(() {
-    completedGames.clear();
-    gameProgress.clear(); // Reset the local progress tracking as well
-  });
-}
-
-void clearAppData() async {
-  final prefs = await SharedPreferences.getInstance();
-  await prefs.clear(); // Clear all SharedPreferences data
-}
-
-
-  /// Load progress from SharedPreferences
-  /// Load progress from SharedPreferences
-Future<void> _loadProgress() async {
-  final prefs = await SharedPreferences.getInstance();
-  setState(() {
-    gameProgress = prefs.getKeys().fold({}, (Map<int, int> map, String key) {
-      final gameId = int.tryParse(key);
-      if (gameId != null) {
-        map[gameId] = prefs.getInt(key) ?? 0;
-      }
-      return map;
-    });
-
-    // Load completed games from SharedPreferences
-    final completedGameList = prefs.getStringList('completedGames') ?? [];
-    completedGames = completedGameList.map((e) => int.parse(e)).toSet();
-  });
-}
-
-
-  /// Save progress to SharedPreferences
-  Future<void> _saveProgress() async {
-  final prefs = await SharedPreferences.getInstance();
-
-  // Save game progress
-  gameProgress.forEach((key, value) {
-    prefs.setInt(key.toString(), value);
-  });
-
-  // Save completed games status
-  prefs.setStringList('completedGames', completedGames.map((e) => e.toString()).toList());
-}
-
-
-  /// Mark the game as completed (if all levels are completed)
- void _markGameAsCompleted(int gameId) {
-  const totalLevels = 5; // Adjust to your total levels
-  final progress = gameProgress[gameId] ?? 0;
-
-  if (progress >= totalLevels) {
+  void clearAppData() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.clear();
     setState(() {
-      completedGames.add(gameId);  // Mark the game as completed
+      completedGames.clear();
+      gameProgress.clear();
     });
-    _saveProgress();  // Save completed games set
   }
-}
 
+  Future<void> _loadProgress() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      gameProgress = prefs.getKeys().fold({}, (Map<int, int> map, String key) {
+        final gameId = int.tryParse(key);
+        if (gameId != null) {
+          map[gameId] = prefs.getInt(key) ?? 0;
+        }
+        return map;
+      });
 
+      final completedGameList = prefs.getStringList('completedGames') ?? [];
+      completedGames = completedGameList.map((e) => int.parse(e)).toSet();
+    });
+  }
 
+  Future<void> _saveProgress() async {
+    final prefs = await SharedPreferences.getInstance();
+    gameProgress.forEach((key, value) {
+      prefs.setInt(key.toString(), value);
+    });
+    prefs.setStringList('completedGames', completedGames.map((e) => e.toString()).toList());
+  }
 
-  /// Update progress for a specific game category
+  void _markGameAsCompleted(int gameId) {
+    const totalLevels = 10;
+    final progress = gameProgress[gameId] ?? 0;
+
+    if (progress >= totalLevels) {
+      setState(() {
+        completedGames.add(gameId);
+      });
+      _saveProgress();
+    }
+  }
+
   void _updateProgress(int gameId, int progress) {
-  setState(() {
-    // Ensure progress doesn't exceed the maximum level
-    gameProgress[gameId] = progress > 5 ? 5 : progress; // Replace `5` with dynamic `totalLevels` if needed
-  });
-  _saveProgress();
-}
-
-
-
-
-
+    setState(() {
+      gameProgress[gameId] = progress > 10 ? 10 : progress;
+    });
+    _saveProgress();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Game Category",
-          style: GoogleFonts.lexendDeca(),
+        title: const Text(
+          "Game",
+          style: TextStyle(fontFamily: 'LexendDeca'),
         ),
         centerTitle: true,
         backgroundColor: Colors.green,
@@ -143,9 +112,9 @@ Future<void> _loadProgress() async {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const SizedBox(height: 10),
-          Text(
-            "Choose a Game Category!",
-            style: GoogleFonts.lexendDeca(fontSize: 25, color: Colors.black),
+          const Text(
+            "Choose a Game Level!",
+            style: TextStyle(fontSize: 25, color: Colors.black, fontFamily: 'LexendDeca'),
           ),
           const SizedBox(height: 20),
           Expanded(
@@ -154,35 +123,33 @@ Future<void> _loadProgress() async {
               itemBuilder: (context, index) {
                 final game = games[index];
                 final progress = gameProgress[game.id] ?? 0;
-                final isCompleted = completedGames.contains(game.id); // Check if game is completed
+                final isCompleted = completedGames.contains(game.id);
 
                 return GameButton(
                   title: game.title,
                   color: game.color,
                   textColor: game.textColor,
                   progress: progress,
-                  isCompleted: isCompleted,  // Pass completion status to the button
+                  isCompleted: isCompleted,
                   onPressed: () => _startGame(context, game.id),
                 );
               },
             ),
           ),
-
-
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
-              onPressed: _resetCompletedGames,
+              onPressed: clearAppData,
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red, // Button color for reset
+                backgroundColor: Colors.red,
                 padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 20),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
-              child: Text(
-                'Reset All Games',
-                style: GoogleFonts.lexendDeca(fontSize: 20, color: Colors.white),
+              child: const Text(
+                'Reset The Games',
+                style: TextStyle(fontSize: 20, color: Colors.white, fontFamily: 'LexendDeca'),
               ),
             ),
           ),
@@ -191,27 +158,24 @@ Future<void> _loadProgress() async {
     );
   }
 
-  /// Start a game and handle its completion
   void _startGame(BuildContext context, int gameId) async {
-    // For simplicity, we assume each game has 5 levels.
     const totalLevels = 5;
     const currentLevel = 1;
 
-    // Push game details and wait for the result
     final result = await Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => GameDetailPage(
           gameId: gameId,
-          currentLevel: currentLevel,  // Pass currentLevel
+          currentLevel: currentLevel,
           onGameCompleted: () => _markGameAsCompleted(gameId),
-          updateProgressScore: (progress) => _updateProgress(gameId, progress), 
-          totalLevels: totalLevels, gameTitle: '$gameId',  // Pass totalLevels
+          updateProgressScore: (progress) => _updateProgress(gameId, progress),
+          totalLevels: totalLevels,
+          gameTitle: '$gameId',
         ),
       ),
     );
 
-    // Check if the game was marked as completed
     if (result != null && result) {
       _markGameAsCompleted(gameId);
     }
@@ -224,7 +188,7 @@ class GameButton extends StatelessWidget {
   final Color color;
   final Color textColor;
   final int progress;
-  final bool isCompleted;  // Check if the game is completed
+  final bool isCompleted;
 
   const GameButton({
     Key? key,
@@ -233,7 +197,7 @@ class GameButton extends StatelessWidget {
     required this.color,
     required this.textColor,
     required this.progress,
-    this.isCompleted = false,  // Default to not completed
+    this.isCompleted = false,
   }) : super(key: key);
 
   @override
@@ -244,7 +208,7 @@ class GameButton extends StatelessWidget {
         width: 90,
         height: 60,
         child: ElevatedButton(
-          onPressed: isCompleted ? null : onPressed,  // Disable button if completed
+          onPressed: isCompleted ? null : onPressed,
           style: ElevatedButton.styleFrom(
             backgroundColor: color,
             shape: RoundedRectangleBorder(
@@ -256,12 +220,9 @@ class GameButton extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: GoogleFonts.lexendDeca(
-                  fontSize: 20,
-                  color: textColor,
-                ),
+                style: TextStyle(fontSize: 25, color: textColor, fontFamily: 'LexendDeca'),
               ),
-              if (isCompleted)  // Show the check icon if completed
+              if (isCompleted)
                 const Align(
                   alignment: Alignment.centerRight,
                   child: Icon(

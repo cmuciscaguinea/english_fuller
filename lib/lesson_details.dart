@@ -4,7 +4,6 @@ import 'package:english_fuller/lesson_data.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'lesson_audio_map.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -39,11 +38,6 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
                       [1, 2, 3, 4, 5, 6, 10, 60].contains(widget.lessonNumber));
   }
 
-  void clearAppData() async {
-  final prefs = await SharedPreferences.getInstance();
-  await prefs.clear(); // Clear all SharedPreferences data
-  }
-
   @override
   void dispose() {
     // Stop the audio player and release resources
@@ -51,6 +45,12 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
     audioPlayer.dispose();
     super.dispose();
   }
+
+  void clearAppData() async {
+  final prefs = await SharedPreferences.getInstance();
+  await prefs.clear(); // Clear all SharedPreferences data
+}
+
 
   void updateCurrentWord(int index) {
     setState(() {
@@ -208,8 +208,9 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
           child: Text(
             textAlign: TextAlign.center,
             sentence,
-            style: GoogleFonts.lexendDeca(
-              fontSize: 27,
+            style: TextStyle(
+              fontFamily: 'LexendDeca',
+              fontSize: 25,
               color: isHighlighted
                   ? (widget.lessonNumber == 7 || widget.lessonNumber == 8 || widget.lessonNumber == 9 ? Colors.red : Colors.black)
                   : Colors.black,  // Default color is black
@@ -235,11 +236,11 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
           children: [
             Text(
               lessonDetails['title'],
-              style: GoogleFonts.lexendDeca(),
+              style: const TextStyle(fontFamily: 'LexendDeca'),
             ),
             Text(
               'Progress ${widget.lessonNumber}: $currentProgress/$totalWords',
-              style: GoogleFonts.lexendDeca(color: Colors.white, fontSize: 17),
+              style: const TextStyle(fontFamily: 'LexendDeca', color: Colors.white, fontSize: 17),
             ),
           ],
         ),
@@ -262,8 +263,9 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
             padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: Text(
               lessonDetails['subTitle'],
-              style: GoogleFonts.lexendDeca(
-                fontSize: 23,
+              style: const TextStyle(
+                fontFamily: 'LexendDeca',
+                fontSize: 20,
               ),
               textAlign: TextAlign.center,
             ),
@@ -355,12 +357,9 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
                   print("Proceed to Next Lesson");
                 }
               },
-              child: Text(
+              child: const Text(
                 'Next Lesson',
-                style: GoogleFonts.lexendDeca(
-                  fontSize: 20,
-                  color: Colors.white,
-                ),
+                style: TextStyle(fontFamily: 'LexendDeca', color: Colors.white, fontSize: 20),
               ),
             ),
           ),

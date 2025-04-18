@@ -1,8 +1,0 @@
-import 'package:audioplayers/audioplayers.dart';
-
-void playSound(String audioPath) async {
-  final player = AudioPlayer();
-
-  // Always assume the path is a local asset and play it using AssetSource
-  await player.play(AssetSource(audioPath));  // Play the local asset
-}

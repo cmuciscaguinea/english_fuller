@@ -41,45 +41,51 @@ class GameContent {
     }
   }
 
-  // Easy category (Letters and Sound)
+  //Level 1 (Vowel Sound (Aa))
   static GameContent _getEasyContent(int level) {
     List<Map<String, dynamic>> easyQuestions = [
       {
-        "questionText": "What sound of this letter?",
-        "soundPath": "audio/aaa.mp3",
-        "correctAnswer": "Aa",
-        "answers": ["Aa", "Bb", "Cc", "Dd"],
-        "subtitle": "Alphabets Sounds",
+        "questionText": "Which word has /Aa/ sound?",
+        "soundPath": "audio/Bad.mp3",
+        "correctAnswer": "Bad",
+        "answers": ["Bad", "Bell", "Bee", "Boy"],
+        "subtitle": "Vowel Sound (Aa)",
       },
-      {
-        "questionText": "What sound of this letter?",
-        "soundPath": "audio/bbb.mp3",
-        "correctAnswer": "Bb",
-        "answers": ["Vv", "Bb", "Dd", "Pp"],
-        "subtitle": "Alphabets Sounds",
+
+       {
+        "questionText": "Which word has /Aa/ sound?",
+        "soundPath": "audio/Dad.mp3",
+        "correctAnswer": "Dad",
+        "answers": ["Dune", "Do", "Dad", "Dog"],
+        "subtitle": "Vowel Sound (Aa)",
       },
+
+
       {
-        "questionText": "What sound of this letter?",
-        "soundPath": "audio/ccc.mp3",
-        "correctAnswer": "Cc",
-        "answers": ["Ss", "Pp", "Cc", "Vv"],
-        "subtitle": "Alphabets Sounds",
-      },
-      {
-        "questionText": "What sound of this letter?",
-        "soundPath": "audio/ddd.mp3",
-        "correctAnswer": "Dd",
-        "answers": ["Bb", "Vv", "Pp", "Dd"],
-        "subtitle": "Alphabets Sounds",
+        "questionText": "Which word has /Aa/ sound?",
+        "soundPath": "audio/Fat.mp3",
+        "correctAnswer": "Fat",
+        "answers": ["Feel", "First", "For", "Fat"],
+        "subtitle": "Vowel Sound (Aa)",
       },
 
       {
-       "questionText": "What sound of this letter?",
-        "soundPath": "audio/eee.mp3",
-        "correctAnswer": "Ee",
-        "answers": ["Ii", "Pp", "Ee", "Gg"],
-        "subtitle": "Alphabets Sounds",
+        "questionText": "Which word has /Aa/ sound?",
+        "soundPath": "audio/Bag.mp3",
+        "correctAnswer": "Bag",
+        "answers": ["Bike", "Bee", "Bag", "Bell"],
+        "subtitle": "Vowel Sound (Aa)",
       },
+
+      {
+        "questionText": "Which word has /Aa/ sound?",
+        "soundPath": "audio/Map.mp3",
+        "correctAnswer": "Map",
+        "answers": ["Mike", "Me", "Map", "Miss"],
+        "subtitle": "Vowel Sound (Aa)",
+      },
+
+     
       // Add more questions here
     ];
 
@@ -105,48 +111,94 @@ class GameContent {
     }
   }
 
-  // Moderate category (Word and Sound)
+  // Level 2 (Rhyming Words /ar/)
+  // Level 2 (WORDS WITH ow SOUNDS AS /aw/)
   static GameContent _getModerateContent(int level) {
     List<Map<String, dynamic>> moderateQuestions = [
-      {
-       "questionText": "What sound of this word?",
-        "soundPath": "audio/Fail.mp3",
-        "correctAnswer": "Fail",
-        "answers": ["Fail", "Rate", "Rake", "Ray"],
-        "subtitle": "Word of Sound",
-      },
-
-      {
-        "questionText": "What sound of this word?",
-        "soundPath": "audio/Draw.mp3",
-        "correctAnswer": "Draw",
-        "answers": ["Draw", "Row", "Mow", "Dough"],
-         "subtitle": "Word of Sound",
-      },
-
-      {
-        "questionText": "What sound of this word?",
-        "soundPath": "audio/East.mp3",
-        "correctAnswer": "East",
-        "answers": ["Rest", "East", "Meet", "Rate"],
-        "subtitle": "Word of Sound",
-      },
 
        {
-        "questionText": "What sound of this word?",
-        "soundPath": "audio/Bite.mp3",
-        "correctAnswer": "Bite",
-        "answers": ["Bay", "Bite", "Byte", "Bye"],
-        "subtitle": "Word of Sound",
+       "questionText": "Which word has the /aw/ sound?",
+        "soundPath": "audio/cow.mp3",
+        "correctAnswer": "Cow",
+        "answers": ["Cow", "Bag", "Map", "Pen"],
+        "subtitle": "Word with 'ow' sound /aw/",
       },
 
       {
-       "questionText": "What sound of this word?",
-        "soundPath": "audio/Clay.mp3",
-        "correctAnswer": "Clay",
-        "answers": ["Mite", "Fly", "Byte", "Clay"],
-        "subtitle": "Word of Sound",
+       "questionText": "Which word has the /aw/ sound?",
+        "soundPath": "audio/town.mp3",
+        "correctAnswer": "Town",
+        "answers": ["Ten", "Town", "Cat", "Mat"],
+        "subtitle": "Word with 'ow' sound /aw/",
       },
+
+      {
+       "questionText": "Which word has the /aw/ sound?",
+        "soundPath": "audio/power.mp3",
+        "correctAnswer": "Power",
+        "answers": ["Pan", "Hat", "Power", "Man"],
+        "subtitle": "Word with 'ow' sound /aw/",
+      },
+
+      {
+       "questionText": "Which word has the /aw/ sound?",
+        "soundPath": "audio/clown down the tower.mp3",
+        "correctAnswer": "Clown down the tower",
+        "answers": ["Dog", "Hit", "Hat", "Clown down the tower"],
+        "subtitle": "Words with 'ow' sound /aw/",
+      },
+
+      {
+       "questionText": "Which word has the /aw/ sound?",
+        "soundPath": "audio/owns the brown gown.mp3",
+        "correctAnswer": "Owns the brown gown",
+        "answers": ["Mine", "Casual", "Owns the brown gown", "Sand"],
+        "subtitle": "Words with 'ow' sound /aw/",
+      },
+
+
+
+      // {
+      //  "questionText": "What word rhymes with the sound?",
+      //   "soundPath": "audio/Car.mp3",
+      //   "correctAnswer": "Bar",
+      //   "answers": ["Bar", "Cat", "Can", "Cast"],
+      //   "subtitle": "Rhyming Words /ar/",
+      // },
+
+      // {
+      //  "questionText": "What word rhymes with the sound?",
+      //   "soundPath": "audio/Bar.mp3",
+      //   "correctAnswer": "Car",
+      //   "answers": ["Bike", "Bus", "Bee", "Car"],
+      //   "subtitle": "Rhyming Words /ar/",
+      // },
+
+      // {
+      //  "questionText": "What word rhymes with the sound?",
+      //   "soundPath": "audio/Far.mp3",
+      //   "correctAnswer": "Bar",
+      //   "answers": ["Fast", "Fat", "Bar", "File"],
+      //   "subtitle": "Rhyming Words /ar/",
+      // },
+
+      // {
+      //  "questionText": "What word rhymes with the sound?",
+      //   "soundPath": "audio/Jar.mp3",
+      //   "correctAnswer": "Tar",
+      //   "answers": ["Juice", "Joy", "Jet", "Tar"],
+      //   "subtitle": "Rhyming Words /ar/",
+      // },
+
+      // {
+      //  "questionText": "What word rhymes with the sound?",
+      //   "soundPath": "audio/Star.mp3",
+      //   "correctAnswer": "Scar",
+      //   "answers": ["Salt", "Scar", "Style", "Sand"],
+      //   "subtitle": "Rhyming Words /ar/",
+      // },
+
+     
       // Add more questions here
     ];
 
@@ -176,45 +228,51 @@ class GameContent {
   static GameContent _getHardContent(int level) {
     List<Map<String, dynamic>> hardQuestions = [
       {
-        "questionText": "Ana play a ____.",
-        "soundPath": "audio/ball.mp3",
-        "correctAnswer": "Ball",
-        "answers": ["Ball", "Bite", "Byte", "Bay"],
-        "subtitle": "Find a missing word",
+        "questionText": "Which word has a consonant blend?",
+        "soundPath": "audio/Blade.mp3",
+        "correctAnswer": "Blade",
+        "answers": ["Blade", "Bus", 
+        "Ben Ten", "Boy Sing"],
+        "subtitle": "Consonant Blend /bl/",
       },
 
       {
-        "questionText": "Seth drive a ___.",
-        "soundPath": "audio/Car.mp3",
-        "correctAnswer": "Car",
-        "answers": ["Can", "Car", "Cane", "Cake"],
-        "subtitle": "Find a missing word",
+        "questionText": "Which word has a consonant blend?",
+        "soundPath": "audio/Blame.mp3",
+        "correctAnswer": "Blame",
+        "answers": ["Blame", "Boy", 
+        "Ben", "Boss"],
+        "subtitle": "Consonant Blend /bl/",
       },
 
       {
-        "questionText": "Maria allegery the ___.",
-        "soundPath": "audio/Cat.mp3",
-        "correctAnswer": "Cat",
-        "answers": ["Cat", "Cry", "Cyte", "Can"],
-        "subtitle": "Find a missing word",
-      },
-      
-      {
-        "questionText": "Jake ____ to play.",
-        "soundPath": "audio/Free.mp3",
-        "correctAnswer": "Free",
-        "answers": ["Fan", "Fit", "Free", "Fire"],
-        "subtitle": "Find a missing word",
+        "questionText": "Which word has a consonant blend?",
+        "soundPath": "audio/Blast.mp3",
+        "correctAnswer": "Blast",
+        "answers": ["Boy", "Blast", 
+        "Ben", "Boss"],
+        "subtitle": "Consonant Blend /bl/",
       },
 
       {
-        "questionText": "Shella play a _____.",
-        "soundPath": "audio/Shell.mp3",
-        "correctAnswer": "Shell",
-        "answers": ["Shell", "Shine", "Shot", "Shy"],
-        "subtitle": "Find a missing word",
+        "questionText": "Which word has a consonant blend?",
+        "soundPath": "audio/Blesildas favorite colors.mp3",
+        "correctAnswer": "Blesildas favorite colors",
+        "answers": ["Boy", "Bird", 
+        "Brian", "Blesildas favorite colors"],
+        "subtitle": "Consonant Blend /bl/",
       },
-      // Add more questions here
+
+      {
+        "questionText": "Which word has a consonant blend?",
+        "soundPath": "audio/are black and white.mp3",
+        "correctAnswer": "are black and white",
+        "answers": ["Bake", "are black and white", 
+        "Bike", "Book"],
+        "subtitle": "Consonant Blend /bl/",
+      }, 
+
+  
     ];
 
     if (level - 1 < hardQuestions.length) {
@@ -256,5 +314,6 @@ class GameContent {
 
     return selectedAnswers;
   }
+
 
 

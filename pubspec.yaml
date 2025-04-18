@@ -53,7 +53,17 @@ flutter_launcher_icons:
 flutter:
   uses-material-design: true
 
+
+  fonts:
+    - family: LexendDeca
+      fonts:
+        - asset: fonts/LexendDeca-Regular.ttf
+        - asset: fonts/LexendDeca-Bold.ttf
+          weight: 700
+
   assets:
+    - fonts/LexendDeca-Regular.ttf
+    - fonts/LexendDeca-Bold.ttf
     - assets/icon/appbg.jpg
     - assets/logo/applogo1.png
     - assets/logo/applogo1.2.png
