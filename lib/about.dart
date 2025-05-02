@@ -15,7 +15,8 @@ class AboutScreen extends StatelessWidget {
 
   final String collaborationDetails =
       'Our excellent professors, Mr. Kent Levi Bonifacio, Mrs. Gladys S. Ayunar, Mrs. Nathalie Joy G. Casildo and Mrs. Jinky G. Marcelo, led this collaborative endeavor. Their knowledge and input were crucial throughout the projects development.\n\n'
-      'We especially thank English teacher Mrs. Leah Culaste Angana, Ph.D., for her expert voice and sound recordings that guaranteed proper pronunciation and improved the educational value of the app.';
+      'We especially thank English teacher Mrs. Leah Culaste Angana, Ph.D., for her expert voice and sound recordings that guaranteed proper pronunciation and improved the educational value of the app.\n\n'
+      'We also extend our gratitude to Mr. Weenkie Jhon A. Marcelo, School Principal of Musuan Integrated School, for his continued support and encouragement throughout the development of this app.';
 
   final String counterparts =
       'English Fuller app builds on the legacy of other groundbreaking projects under the CISC KIDS initiative, such as:\n';
