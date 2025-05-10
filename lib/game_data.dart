@@ -41,7 +41,8 @@ class GameContent {
     }
   }
 
-  //Level 1 (Vowel Sound (Aa))
+  //Level 1  (Vowel Sound (Aa))
+  //Lesson 2  (Vowel Sound (Aa))
   static GameContent _getEasyContent(int level) {
     List<Map<String, dynamic>> easyQuestions = [
       {
@@ -111,8 +112,8 @@ class GameContent {
     }
   }
 
-  // Level 2 (Rhyming Words /ar/)
-  // Level 2 (WORDS WITH ow SOUNDS AS /aw/)
+  // Level 2 - Moderate category (Words with 'ow' sounds as /aw/)
+  // Lessson 29 (WORDS WITH ow SOUNDS AS /aw/)
   static GameContent _getModerateContent(int level) {
     List<Map<String, dynamic>> moderateQuestions = [
 
@@ -120,7 +121,7 @@ class GameContent {
        "questionText": "Which word has the /aw/ sound?",
         "soundPath": "audio/cow.mp3",
         "correctAnswer": "Cow",
-        "answers": ["Cow", "Bag", "Map", "Pen"],
+        "answers": ["Cow", "Can", "Cup", "Cast"],
         "subtitle": "Word with 'ow' sound /aw/",
       },
 
@@ -128,7 +129,7 @@ class GameContent {
        "questionText": "Which word has the /aw/ sound?",
         "soundPath": "audio/town.mp3",
         "correctAnswer": "Town",
-        "answers": ["Ten", "Town", "Cat", "Mat"],
+        "answers": ["Time", "Town", "Tie", "Tied"],
         "subtitle": "Word with 'ow' sound /aw/",
       },
 
@@ -136,23 +137,23 @@ class GameContent {
        "questionText": "Which word has the /aw/ sound?",
         "soundPath": "audio/power.mp3",
         "correctAnswer": "Power",
-        "answers": ["Pan", "Hat", "Power", "Man"],
+        "answers": ["Pan", "Post", "Power", "Pack"],
         "subtitle": "Word with 'ow' sound /aw/",
       },
 
       {
        "questionText": "Which word has the /aw/ sound?",
-        "soundPath": "audio/clown down the tower.mp3",
-        "correctAnswer": "Clown down the tower",
-        "answers": ["Dog", "Hit", "Hat", "Clown down the tower"],
+        "soundPath": "audio/clown.mp3",
+        "correctAnswer": "Clown",
+        "answers": ["Clutch", "Clay", "Claim", "Clown"],
         "subtitle": "Words with 'ow' sound /aw/",
       },
 
       {
        "questionText": "Which word has the /aw/ sound?",
-        "soundPath": "audio/owns the brown gown.mp3",
-        "correctAnswer": "Owns the brown gown",
-        "answers": ["Mine", "Casual", "Owns the brown gown", "Sand"],
+        "soundPath": "audio/gown.mp3",
+        "correctAnswer": "Gown",
+        "answers": ["Game", "Guest", "Gown", "Gas"],
         "subtitle": "Words with 'ow' sound /aw/",
       },
 
@@ -224,7 +225,8 @@ class GameContent {
     }
   }
 
-  // Hard category (Rhyming Word)
+  // Level 3 - Hard category (Rhyming Word)
+  //Lesson 30 (Rhyming Words /bl/)
   static GameContent _getHardContent(int level) {
     List<Map<String, dynamic>> hardQuestions = [
       {
@@ -238,10 +240,9 @@ class GameContent {
 
       {
         "questionText": "Which word has a consonant blend?",
-        "soundPath": "audio/Blame.mp3",
-        "correctAnswer": "Blame",
-        "answers": ["Blame", "Boy", 
-        "Ben", "Boss"],
+        "soundPath": "audio/Blush.mp3",
+        "correctAnswer": "Blush",
+        "answers": ["Blush", "Boy", "Ben", "Boss"],
         "subtitle": "Consonant Blend /bl/",
       },
 
@@ -256,19 +257,19 @@ class GameContent {
 
       {
         "questionText": "Which word has a consonant blend?",
-        "soundPath": "audio/Blesildas favorite colors.mp3",
-        "correctAnswer": "Blesildas favorite colors",
-        "answers": ["Boy", "Bird", 
-        "Brian", "Blesildas favorite colors"],
+        "soundPath": "audio/Bless Blade.mp3",
+        "correctAnswer": "Bless Blade",
+        "answers": ["Base Basic", "Bird Bite", 
+        "Brian Boy", "Bless Blade"],
         "subtitle": "Consonant Blend /bl/",
       },
 
       {
         "questionText": "Which word has a consonant blend?",
-        "soundPath": "audio/are black and white.mp3",
-        "correctAnswer": "are black and white",
-        "answers": ["Bake", "are black and white", 
-        "Bike", "Book"],
+        "soundPath": "audio/Bland.mp3",
+        "correctAnswer": "Bland Blast",
+        "answers": ["Bake Bay", "Bland Blast", 
+        "Bike Buy", "Book Bake"],
         "subtitle": "Consonant Blend /bl/",
       }, 
 
