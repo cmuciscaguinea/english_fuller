@@ -66,7 +66,7 @@ Map<String, dynamic> getLessonDetails(int lessonNumber) {
         'title': 'Lesson $lessonNumber',
         'subTitle': 'Hickory Dickory Dock',
         'words': ['Hickory, dickory, dock. The mouse ran up the clock. The clock struck one. The mouse ran down. Hickory, dickory, dock!'],
-        'timings': [ 500, 600, 1000,   2300, 2500, 2900,  3000, 3600, 4000,   4900, 5500, 5800, 6000,   7000, 7400,  7900, 8100,     9500,  9900, 10400],
+        'timings': [500, 600, 1000, 2300, 2500, 2900, 3000, 3600, 4000, 4900, 5500, 5800, 6000, 7000, 7400, 7900, 8100, 9500, 9900, 10400],
         'audioDuration': 11200, // Total duration of audio in milliseconds
       },
 
@@ -86,14 +86,17 @@ Map<String, dynamic> getLessonDetails(int lessonNumber) {
         'title': 'Lesson $lessonNumber',
         'subTitle': 'Miss Polly had a Dolly',
         'words': ['Miss Polly had a dolly who was sick, sick, sick. So, she phoned for the doctor to be quick, quick, quick. The doctor came with his bag and hat And knocked at the door with a rat-a-tat-tat. He looked at the dolly and shook his head And he said “Miss Polly, put her straight to bed!” He wrote a pad for a pill, pill, pill “I’ll be back in the morning with my bill, bill, bill."'],
-        'timings': [500, 900, 1300, 1500, 1900, 2400, 2700, 3000, 4000, 5000,
-        6000, 6200, 6800, 7000, 7300, 7800, 8000, 8300, 8700, 9000, 9500, 10300,
+        'timings': [
+            500, 900, 1300, 1500, 1900, 2400, 2700, 3000, 4000, 5000,
+            6000, 6200, 6800, 7000, 7300, 7800, 8000, 8300, 8700, 9000,
+            9500, 10300, 10500, 11100, 11500, 11800, 12000, 12700, 13100, 13700,
+            14400, 15100, 15400, 16000, 16200, 17000, 17500, 18400, 18700, 18900,
+            19000, 19100, 19700, 20200, 20900, 21200, 21900, 22300, 22900, 23600,
+            24300, 24700, 24900, 25700, 26000, 26500, 27200, 27500, 27800, 28300,
+            28500, 28600, 29600, 30300, 31000, 31500, 31700, 32100, 32300, 32500,
+            33200, 33500, 33800, 34500, 35200, 36000
+          ],
 
-        10500, 11100, 11500, 11800, 12000, 12700, 13100, 13700, 14400, 15100, 15400, 
-        16000, 16200, 16300, 17000, 17500, 18400, 18700, 18900, 19000, 19100, 19700, 20200, 20900, 21200, 21900, 
-        22300, 22900, 23600, 24300, 24700, 24900, 25700, 26000, 26500, 
-        27200, 27500, 27800,  28300, 28500, 28600, 29600, 30300, 31000, 
-        31500, 31700, 32100, 32300, 32500, 33200, 33500, 33800, 34500, 35200, 36000],
         'audioDuration': 36000, // Total duration of audio in milliseconds
       },
 

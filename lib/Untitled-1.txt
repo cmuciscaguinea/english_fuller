@@ -23,7 +23,6 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
   bool hasPlayed = false; // To count progress only once
   int currentProgress = 0; // To track words played
   int totalWords = 0; // Total number of words in the lesson
-  int _syncSessionId = 0;
   Set<int> playedWords = {}; // Set to track the words that have been played
   bool isPlaying = false;
   late bool isFocusedLesson;
@@ -60,62 +59,27 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
     });
   }
 
-  // Future<void> loadProgress() async {
-  //   final prefs = await SharedPreferences.getInstance();
-  //   setState(() {
-  //     currentProgress = prefs.getInt('lesson_${widget.lessonNumber}_progress') ?? 0;
-  //   });
-  // }
-
   Future<void> loadProgress() async {
-  final prefs = await SharedPreferences.getInstance();
-  setState(() {
-    currentProgress = prefs.getInt('lesson_${widget.lessonNumber}_progress') ?? 0;
-
-    final playedWordList = prefs.getStringList('lesson_${widget.lessonNumber}_playedWords') ?? [];
-    playedWords = playedWordList.map((e) => int.tryParse(e) ?? -1).where((e) => e >= 0).toSet();
-  });
-}
-
-
-  // Future<void> saveProgress() async {
-  //   final prefs = await SharedPreferences.getInstance();
-  //   await prefs.setInt('lesson_${widget.lessonNumber}_progress', currentProgress);
-  // }
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      currentProgress = prefs.getInt('lesson_${widget.lessonNumber}_progress') ?? 0;
+    });
+  }
 
   Future<void> saveProgress() async {
-  final prefs = await SharedPreferences.getInstance();
-  await prefs.setInt('lesson_${widget.lessonNumber}_progress', currentProgress);
-  await prefs.setStringList(
-    'lesson_${widget.lessonNumber}_playedWords',
-    playedWords.map((e) => e.toString()).toList(),
-  );
-}
-
-
-  // Future<void> resetProgress() async {
-  //   setState(() {
-  //     currentProgress = 0;
-  //     currentWordIndex = -1;
-  //     playedWords.clear();  // Clear played words
-  //   });
-  //   final prefs = await SharedPreferences.getInstance();
-  //   await prefs.setInt('lesson_${widget.lessonNumber}_progress', 0);  // Reset progress in SharedPreferences
-  // }
-
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setInt('lesson_${widget.lessonNumber}_progress', currentProgress);
+  }
 
   Future<void> resetProgress() async {
-  setState(() {
-    currentProgress = 0;
-    currentWordIndex = -1;
-    playedWords.clear();
-  });
-  final prefs = await SharedPreferences.getInstance();
-  await prefs.setInt('lesson_${widget.lessonNumber}_progress', 0);
-  await prefs.remove('lesson_${widget.lessonNumber}_playedWords');
-}
-
-
+    setState(() {
+      currentProgress = 0;
+      currentWordIndex = -1;
+      playedWords.clear();  // Clear played words
+    });
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setInt('lesson_${widget.lessonNumber}_progress', 0);  // Reset progress in SharedPreferences
+  }
 
   Future<void> playSound(String sentence, int index) async {
   final lessonDetails = getLessonDetails(widget.lessonNumber);
@@ -205,52 +169,38 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
     return matchedFile;
   }
 
-    void _syncTextWithAudio(String sentence, List<int>? timings) {
+  void _syncTextWithAudio(String sentence, List<int>? timings) {
     if (timings == null || timings.isEmpty) {
+      // If timings are not provided, fallback to no highlighting
       setState(() {
-        currentWordIndex = -1;
+        currentWordIndex = -1; // No word is highlighted
       });
       return;
-  }
+    }
 
-        final words = sentence.split(" ");
-    // final words = sentence.replaceAll(RegExp(r'[.,]'), '').split(" ");
-    // if (words.length != timings.length) {
-    //   if (kDebugMode) {
-    //     print("Mismatch between words and timings length");
-    //   }
-    //   return;
-    // }
-    final int sessionId = ++_syncSessionId; // Invalidate previous sessions
+    final words = sentence.split(" ");
 
-    for (int i = 0; i < words.length && i < timings.length; i++) {
+    for (int i = 0; i < words.length; i++) {
       Future.delayed(Duration(milliseconds: timings[i]), () {
-        if (mounted && sessionId == _syncSessionId) {
+        if (mounted) {
           setState(() {
-            currentWordIndex = i;
+            currentWordIndex = i; // Highlight the current word
           });
         }
       });
     }
 
-    Future.delayed(Duration(milliseconds: timings.last + 300), () {
-      if (mounted && sessionId == _syncSessionId) {
+    Future.delayed(Duration(milliseconds: timings.last + 500), () {
+      if (mounted) {
         setState(() {
-          currentWordIndex = -1;
+          currentWordIndex = -1; // Reset highlighting after playback ends
         });
       }
     });
   }
 
   Widget buildHighlightedSentence(String sentence, int currentWordIndex, {TextAlign textAlign = TextAlign.left}) {
-  //  final words = sentence.replaceAll(RegExp(r'[.,]'), '').split(" ");
-   final words = sentence.split(" ");
-    // if (words.length != timings.length) {
-    //   if (kDebugMode) {
-    //     print("Mismatch between words and timings length");
-    //   }
-    //   return;
-    // }
+    final words = sentence.split(" ");
     return Wrap(
       children: words.asMap().entries.map((entry) {
         final index = entry.key;
