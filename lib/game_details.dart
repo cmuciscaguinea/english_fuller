@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+// ignore: must_be_immutable
 class GameDetailPage extends StatefulWidget {
   final int gameId;
   final int totalLevels;
