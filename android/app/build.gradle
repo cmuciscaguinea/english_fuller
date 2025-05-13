@@ -74,11 +74,6 @@ android {
     signingConfigs {
         release {
 
-            // keyAlias = keystoreProperties['keyAlias']
-            // keyPassword = keystoreProperties['keyPassword']
-            // storeFile = keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
-            // storePassword = keystoreProperties['storePassword']
-
 
             storeFile file("C:/Users/hi/Documents/flutter projects/english_fuller/android/app/upload-keystore.jks")
             storePassword "CiscKidsEnglishFuller"
@@ -89,8 +84,7 @@ android {
     buildTypes {
         release {
             signingConfig signingConfigs.release
-            // signingConfig = signingConfigs.debug
-            // signingConfig = signingConfigs.release
+
         }
     }
 }
