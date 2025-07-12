@@ -16,13 +16,17 @@ Map<String, dynamic> getLessonDetails(int lessonNumber) {
       2: {
         'title': 'Lesson $lessonNumber',
         'subTitle': 'Vowel Sound (Aa)',
-        'words': ['Bad', 'Dad', 'Lad', 'Bag', 'Nag', 'Wag', 'Rat', 'Mat', 'Fat', 'Gas', 'Has', 'Was', 'Cap', 'Gap', 'Map'],
+        'words': ['Bad', 'Dad', 'Lad', 'Bag', 'Nag', 
+        'Wag', 'Rat', 'Mat', 'Fat', 'Gas', 'Has',
+         'Was', 'Cap', 'Gap', 'Map'],
       },
 
       3: {
         'title': 'Lesson $lessonNumber',
         'subTitle': 'Vowel Sound (Ee)',
-        'words': ['Bed', 'Red', 'Led', 'Beg', 'Leg', 'Peg', 'Gem', 'Bem', 'Hem', 'Pen', 'Ten', 'Yen', 'Get', 'Net', 'Set'],
+        'words': ['Bed', 'Red', 'Led', 'Beg', 'Leg', 
+        'Peg', 'Gem', 'Bem', 'Hem', 'Pen', 'Ten', 
+        'Yen', 'Get', 'Net', 'Set'],
       },
 
       4: {
@@ -65,7 +69,7 @@ Map<String, dynamic> getLessonDetails(int lessonNumber) {
       7: {
         'title': 'Lesson $lessonNumber',
         'subTitle': 'Hickory Dickory Dock',
-        'words': ['Hickory, dickory, dock. The mouse ran up the clock. The clock struck one. The mouse ran down. Hickory, dickory, dock!'],
+        'words': ['Hickory, dickory, dock. The mouse run up the clock. The clock struck one. The mouse ran down. Hickory, dickory, dock!'],
         'timings': [500, 600, 1000, 2300, 2500, 2900, 3000, 3600, 4000, 4900, 5500, 5800, 6000, 7000, 7400, 7900, 8100, 9500, 9900, 10400],
         'audioDuration': 11200, // Total duration of audio in milliseconds
       },
@@ -107,7 +111,7 @@ Map<String, dynamic> getLessonDetails(int lessonNumber) {
 
       10: {
         'title': 'Lesson $lessonNumber',
-        'subTitle': 'Rhyming Words /al/',
+        'subTitle': 'Rhyming Words /all/',
         'words': ['Ball', 'Call', 'Tall',
           'Wall', 'Fall'],
       },
@@ -146,7 +150,8 @@ Map<String, dynamic> getLessonDetails(int lessonNumber) {
       15: {
         'title': 'Lesson $lessonNumber',
         'subTitle': 'Rhyming Words (/uck/)',
-        'words': ['Duck', 'Truck', 'Luck', 'Buck', 'Pluck'],
+        'words': ['Duck', 'Truck', 'Luck', 
+        'Buck', 'Pluck'],
       },
 
       // Vowel and Consonant word sound

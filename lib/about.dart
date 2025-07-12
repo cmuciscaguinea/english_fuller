@@ -214,7 +214,7 @@ class AboutScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Image.asset(
-                        'assets/logo/applogo1.2.png', // Replace with the logo of the first counterpart
+                        'assets/logo/fuller.png', // Replace with the logo of the first counterpart
                         height: 70,
                         width: 70,
                       ),
@@ -239,7 +239,7 @@ class AboutScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Image.asset(
-                        'assets/logo/applogo1.2.png', // Replace with the logo of the second counterpart
+                        'assets/logo/marungko.png', // Replace with the logo of the second counterpart
                         height: 70,
                         width: 70,
                       ),
@@ -263,7 +263,7 @@ class AboutScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Image.asset(
-                        'assets/logo/applogo1.2.png', // Replace with the logo of the second counterpart
+                        'assets/logo/philiri.png', // Replace with the logo of the second counterpart
                         height: 70,
                         width: 70,
                       ),

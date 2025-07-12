@@ -66,12 +66,15 @@ flutter:
     - fonts/LexendDeca-Bold.ttf
     - assets/icon/appbg.jpg
     - assets/logo/applogo1.png
-    - assets/logo/applogo1.2.png
+    # - assets/logo/applogo1.2.png
+    - assets/logo/fuller.png
+    - assets/logo/marungko.png
+    - assets/logo/philiri.png
     - assets/icon/appicon4.png
-    - assets/images/
+    # - assets/images/
     - assets/icon/
     - assets/profile/
-    - assets/audio/
+    # - assets/audio/
     - assets/sounds/lessons1/
     - assets/sounds/lessons2/
     - assets/sounds/lessons3/
@@ -133,6 +136,69 @@ flutter:
     - assets/sounds/lessons58/
     - assets/sounds/lessons59/
     - assets/sounds/lessons60/
+
+
+    - assets/audio/game1/
+    - assets/audio/game2/
+    - assets/audio/game3/
+    - assets/audio/game4/
+    - assets/audio/game5/
+    - assets/audio/game6/
+    - assets/audio/game7/
+    - assets/audio/game8/
+    - assets/audio/game9/
+    - assets/audio/game10/
+    - assets/audio/game11/
+    - assets/audio/game12/
+    - assets/audio/game13/
+    - assets/audio/game14/
+    - assets/audio/game15/
+    - assets/audio/game16/
+    - assets/audio/game17/
+    - assets/audio/game18/
+    - assets/audio/game19/
+    - assets/audio/game20/
+    - assets/audio/game21/
+    - assets/audio/game22/
+    - assets/audio/game23/
+    - assets/audio/game24/
+    - assets/audio/game25/
+    - assets/audio/game26/
+    - assets/audio/game27/
+    - assets/audio/game28/
+    - assets/audio/game29/
+    - assets/audio/game29/
+    - assets/audio/game30/
+    - assets/audio/game31/
+    - assets/audio/game32/
+    - assets/audio/game33/
+    - assets/audio/game34/
+    - assets/audio/game35/
+    - assets/audio/game36/
+    - assets/audio/game37/
+    - assets/audio/game38/
+    - assets/audio/game39/
+    - assets/audio/game40/
+    - assets/audio/game41/
+    - assets/audio/game42/
+    - assets/audio/game43/
+    - assets/audio/game44/
+    - assets/audio/game45/
+    - assets/audio/game46/
+    - assets/audio/game47/
+    - assets/audio/game48/
+    - assets/audio/game49/
+    - assets/audio/game50/
+    - assets/audio/game51/
+    - assets/audio/game52/
+    - assets/audio/game53/
+    - assets/audio/game54/
+    - assets/audio/game55/
+    - assets/audio/game56/
+    - assets/audio/game57/
+    - assets/audio/game58/
+    - assets/audio/game59/
+    - assets/audio/game60/
     # - assets/audio/Fail.mp3
 
     

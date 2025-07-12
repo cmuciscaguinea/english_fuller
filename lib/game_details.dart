@@ -1,17 +1,18 @@
 //game_details.dart
 
+
 import 'package:english_fuller/game_data.dart';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-// ignore: must_be_immutable
 class GameDetailPage extends StatefulWidget {
   final int gameId;
   final int totalLevels;
   int currentLevel;
   final VoidCallback onGameCompleted;
-  final Function(int) updateProgressScore; // To update progress in game_list.dart
+  final Function(int) updateProgressScore;
+  
 
   GameDetailPage({
     Key? key,
@@ -19,7 +20,8 @@ class GameDetailPage extends StatefulWidget {
     required this.totalLevels,
     required this.currentLevel,
     required this.onGameCompleted,
-    required this.updateProgressScore, required String gameTitle,
+    required this.updateProgressScore,
+    required String gameTitle,
   }) : super(key: key);
 
   @override
@@ -32,15 +34,14 @@ class _GameDetailPageState extends State<GameDetailPage> {
   String feedbackMessage = "";
   Color feedbackColor = Colors.transparent;
   final AudioPlayer _audioPlayer = AudioPlayer();
-  int correctAnswers = 0; // Track the number of correct answers per level
-  bool hasAnsweredThisLevel = false; // Prevents multiple score increments per level
-  int currentProgress = 0;
+  int correctAnswers = 0;
+  bool hasAnsweredThisLevel = false;
 
   @override
   void initState() {
     super.initState();
-    gameContent = GameContent.getGameContent(widget.gameId, widget.currentLevel);
-    _loadProgress(); // Load saved score for the current level when the page loads
+    gameContent = GameContent.getGameContent(widget.gameId, widget.currentLevel - 1);
+    _loadProgress();
   }
 
   @override
@@ -123,14 +124,7 @@ class _GameDetailPageState extends State<GameDetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    String gameDifficulty = '';
-    if (widget.gameId == 1) {
-      gameDifficulty = 'Level 1';
-    } else if (widget.gameId == 2) {
-      gameDifficulty = 'Level 2';
-    } else if (widget.gameId == 3) {
-      gameDifficulty = 'Level 3';
-    }
+    String gameDifficulty = 'Game Lesson ${widget.gameId}';
 
     return Scaffold(
       appBar: AppBar(
@@ -154,22 +148,19 @@ class _GameDetailPageState extends State<GameDetailPage> {
           Expanded(
             child: SingleChildScrollView(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const SizedBox(height: 20),
                   Text(
                     textAlign: TextAlign.center,
                     gameContent.subtitle,
-                    style: const TextStyle(fontFamily: 'LexendDeca', fontSize: 23, color: Colors.black),
+                    style: const TextStyle(fontFamily: 'LexendDeca', fontSize: 23),
                   ),
-                  
                   const SizedBox(height: 20),
                   if (gameContent.questionText != null)
                     Text(
                       textAlign: TextAlign.center,
                       gameContent.questionText!,
-                      style: const TextStyle(fontFamily: 'LexendDeca', fontSize: 23, color: Colors.black),
+                      style: const TextStyle(fontFamily: 'LexendDeca', fontSize: 23),
                     ),
                   const SizedBox(height: 20),
                   ElevatedButton(
@@ -220,7 +211,7 @@ class _GameDetailPageState extends State<GameDetailPage> {
                   _saveProgress();
                   setState(() {
                     widget.currentLevel++;
-                    gameContent = GameContent.getGameContent(widget.gameId, widget.currentLevel);
+                    gameContent = GameContent.getGameContent(widget.gameId, widget.currentLevel - 1);
                     selectedAnswer = null;
                     feedbackMessage = "";
                     feedbackColor = Colors.transparent;
@@ -270,11 +261,7 @@ class _GameDetailPageState extends State<GameDetailPage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(
-              Icons.star,
-              color: Colors.white,
-              size: 20,
-            ),
+            const Icon(Icons.star, color: Colors.white, size: 20),
             const SizedBox(width: 8),
             Flexible(
               child: Text(
@@ -301,7 +288,6 @@ class _GameDetailPageState extends State<GameDetailPage> {
       if (answer == gameContent.correctAnswer) {
         feedbackMessage = "Correct!";
         feedbackColor = Colors.green;
-
         if (correctAnswers < widget.totalLevels) {
           correctAnswers++;
           _saveProgress();
@@ -313,7 +299,15 @@ class _GameDetailPageState extends State<GameDetailPage> {
     });
   }
 
-  void playSound(String soundPath) async {
-    await _audioPlayer.play(AssetSource(soundPath));
+  void playSound(String? soundPath) async {
+    if (soundPath != null && soundPath.isNotEmpty) {
+      try {
+        await _audioPlayer.play(AssetSource(soundPath));
+      } catch (e) {
+        print("Error playing sound: $e");
+      }
+    } else {
+      print("Sound path is null or empty");
+    }
   }
 }

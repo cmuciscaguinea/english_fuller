@@ -21,12 +21,57 @@ class GameData {
   });
 }
 
-// List of games with their properties.
-final List<GameData> games = [
-  GameData(id: 1, title: "Level 1", color: Colors.yellow, textColor: Colors.black, gameTitle: 'Level 1'),
-  GameData(id: 2, title: "Level 2", color: const Color.fromARGB(255, 255, 193, 59), textColor: Colors.black, gameTitle: 'Level 2'),
-  GameData(id: 3, title: "Level 3", color: Colors.orange, textColor: Colors.black, gameTitle: 'Level 3'),
-];
+/// Function to get contrasting text color for readability
+Color getTextColor(Color background) {
+  return ThemeData.estimateBrightnessForColor(background) == Brightness.dark
+      ? Colors.white
+      : Colors.black;
+}
+
+/// List of 30 colorful game lessons
+final List<GameData> games = List.generate(60, (index) {
+  // final colors = [
+  //   Colors.yellow,
+  //   Colors.orange,
+  //   Colors.pinkAccent,
+  //   Colors.lightBlueAccent,
+  //   Colors.lightGreen,
+  //   Colors.purpleAccent,
+  //   Colors.cyanAccent,
+  //   Colors.tealAccent,
+  //   Colors.limeAccent,
+  //   Colors.indigoAccent,
+  //   Colors.deepOrangeAccent,
+  //   Colors.amberAccent,
+  // ];
+
+  final colors = [
+  const Color(0xFFC8E6C9), // very light green (new)
+  const Color(0xFFA5D6A7), // light green
+  const Color(0xFF81C784),
+  const Color(0xFF66BB6A),
+  const Color(0xFF4CAF50), // standard green
+  const Color(0xFF43A047),
+  const Color(0xFF388E3C),
+  const Color(0xFF2E7D32),
+  const Color(0xFF1B5E20), // dark green
+  const Color(0xFF0D3B13), // very dark green (new)
+  ];
+
+
+
+  final bgColor = colors[index % colors.length];
+  final textColor = getTextColor(bgColor);
+
+  return GameData(
+    id: index + 1,
+    // title: "Game ${index + 1} | Lesson ${index + 1}",
+    title: "Game ${index + 1}",
+    color: bgColor,
+    textColor: textColor,
+    gameTitle: 'Level ${index + 1}',
+  );
+});
 
 class GameList extends StatefulWidget {
   const GameList({super.key});
@@ -113,7 +158,7 @@ class _GameListState extends State<GameList> {
         children: [
           const SizedBox(height: 10),
           const Text(
-            "Choose a Game Level!",
+            "List of Game Lessons!",
             style: TextStyle(fontSize: 25, color: Colors.black, fontFamily: 'LexendDeca'),
           ),
           const SizedBox(height: 20),
@@ -203,9 +248,9 @@ class GameButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
       child: SizedBox(
-        width: 90,
+        width: double.infinity,
         height: 60,
         child: ElevatedButton(
           onPressed: isCompleted ? null : onPressed,
@@ -220,7 +265,7 @@ class GameButton extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: TextStyle(fontSize: 25, color: textColor, fontFamily: 'LexendDeca'),
+                style: TextStyle(fontSize: 20, color: textColor, fontFamily: 'LexendDeca'),
               ),
               if (isCompleted)
                 const Align(

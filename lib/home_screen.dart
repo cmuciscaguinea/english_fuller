@@ -94,10 +94,10 @@ class HomeScreen extends StatelessWidget {
           ),
           content: Text(
             '1. Tap Start Playing to begin.\n'
-            '2. Choose from three game Levels.\n'
-            '3. Each game levels has 5 questions. 🌟🌟🌟🌟🌟\n'
-            '3. Use the Play button to hear words & letters. ▶️👂🎵 \n'
-            '4. Complete all levels to score points. 🌟🌟🌟\n'
+            '2. There are 1-30 Game Lessons.\n'
+            '3. Each game lessons has 5 questions. 🌟🌟🌟🌟🌟\n'
+            '3. Use the Play button to hear the sound of words & letters. ▶️👂🎵 \n'
+            '4. Complete all question to score the points. 🌟🌟🌟\n'
             '5. Have fun learning!  ❤🎉🎈',
             style: GoogleFonts.lexendDeca(fontSize: 15,),
           ),
