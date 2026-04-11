@@ -24,8 +24,7 @@ Dart – Programming language used for Flutter apps
 This project was developed as part of the Central Mindanao University (CMU) in College of Information Sciences and Computing (CISC) of Bachelor of Science in Information Technology (BSIT) program Batch 2025. It highlights the use of mobile technology in supporting education and literacy development.
 
 📖 Resources
-https://docs.flutter.dev/get-started/codelab![Uploading image.png…]()
-
+https://docs.flutter.dev/get-started/codelab
 https://docs.flutter.dev/cookbook
 https://docs.flutter.dev/
 
