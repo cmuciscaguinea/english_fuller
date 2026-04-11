@@ -7,9 +7,11 @@ The English Fuller App is a mobile application developed using Flutter as part o
 This application has been successfully completed, approved, and published on the Google Play Store, demonstrating its real-world usability and effectiveness as an educational tool.
 
 📱 About the Application
+
 The app is designed to help learners improve their English reading skills using the Fuller Approach. It provides an interactive and engaging learning experience that enhances pronunciation, comprehension, and reading confidence.
 
 🚀 Features
+
 Interactive reading lessons
 Audio support for pronunciation
 User-friendly interface
@@ -17,13 +19,16 @@ Structured learning approach
 Designed for students and beginner readers
 
 🛠️ Built With
+
 Flutter – Cross-platform mobile development framework
 Dart – Programming language used for Flutter apps
 
 🎓 Capstone Project
+
 This project was developed as part of the Central Mindanao University (CMU) in College of Information Sciences and Computing (CISC) of Bachelor of Science in Information Technology (BSIT) program Batch 2025. It highlights the use of mobile technology in supporting education and literacy development.
 
 📖 Resources
+
 https://docs.flutter.dev/get-started/codelab
 https://docs.flutter.dev/cookbook
 https://docs.flutter.dev/
@@ -31,6 +36,7 @@ https://docs.flutter.dev/
 Link the Application: https://play.google.com/store/apps/details?id=com.cisckids.beginningreading
 
 👨‍💻 Developers
+
 JOEMAR M. AGUINEA
 JAY C. RANES
 
